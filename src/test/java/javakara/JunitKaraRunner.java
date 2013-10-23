@@ -281,6 +281,8 @@ public class JunitKaraRunner extends KaraRunner {
     public String toString() {
         StringBuilder content = new StringBuilder();
         content.append(NEWLINE);
+        content.append(String.format("Kara: [%d, %d, %s]", karaRow, karaColumn, karaOrientation));
+        content.append(NEWLINE);
         for (int row = 0; row < world.length; row++) {
             Element[] currentRow = world[row];
             for (int column = 0; column < currentRow.length; column++) {

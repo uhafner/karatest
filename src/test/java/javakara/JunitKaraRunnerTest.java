@@ -71,6 +71,141 @@ public class JunitKaraRunnerTest {
         }
     }
 
+    /**
+     * Verifies that mushroom moving works if there is no obstacle.
+     */
+    @Test
+    public void moveMushroomVertically() {
+        JunitKaraRunner kara = new JunitKaraRunner(0, 0, Orientation.RIGHT,
+                new String[] {
+                        "OOO",
+                        "OMO",
+                        "OOO",
+                });
+        kara.move();
+        kara.turnRight();
+
+        assertTrue("There is no mushroom in front of Kara", kara.mushroomFront());
+
+        kara.move();
+        assertEquals("Die Welten sind nicht korrekt",
+                new JunitKaraRunner(1, 1, Orientation.DOWN, new String[] {
+                        "OOO",
+                        "OOO",
+                        "OMO",
+            }), kara);
+
+        kara.move();
+        assertEquals("Die Welten sind nicht korrekt",
+                new JunitKaraRunner(2, 1, Orientation.DOWN, new String[] {
+                        "OMO",
+                        "OOO",
+                        "OOO",
+                }), kara);
+
+        kara.move();
+        assertEquals("Die Welten sind nicht korrekt",
+                new JunitKaraRunner(0, 1, Orientation.DOWN, new String[] {
+                        "OOO",
+                        "OMO",
+                        "OOO",
+                }), kara);
+
+        kara.turnLeft();
+        kara.turnLeft();
+        kara.move();
+
+        kara.move();
+        assertEquals("Die Welten sind nicht korrekt",
+                new JunitKaraRunner(1, 1, Orientation.UP, new String[] {
+                        "OMO",
+                        "OOO",
+                        "OOO",
+                }), kara);
+
+        kara.move();
+        assertEquals("Die Welten sind nicht korrekt",
+                new JunitKaraRunner(0, 1, Orientation.UP, new String[] {
+                        "OOO",
+                        "OOO",
+                        "OMO",
+            }), kara);
+
+        kara.move();
+        assertEquals("Die Welten sind nicht korrekt",
+                new JunitKaraRunner(2, 1, Orientation.UP, new String[] {
+                        "OOO",
+                        "OMO",
+                        "OOO",
+                }), kara);
+    }
+
+    /**
+     * Verifies that mushroom moving works if there is no obstacle.
+     */
+    @Test
+    public void moveMushroomHoorizontally() {
+        JunitKaraRunner kara = new JunitKaraRunner(1, 0, Orientation.RIGHT,
+                new String[] {
+                "OOO",
+                "OMO",
+                "OOO",
+        });
+        assertTrue("There is no mushroom in front of Kara", kara.mushroomFront());
+
+        kara.move();
+        assertEquals("Die Welten sind nicht korrekt",
+                new JunitKaraRunner(1, 1, Orientation.RIGHT, new String[] {
+                        "OOO",
+                        "OOM",
+                        "OOO",
+                }), kara);
+
+        kara.move();
+        assertEquals("Die Welten sind nicht korrekt",
+                new JunitKaraRunner(1, 2, Orientation.RIGHT, new String[] {
+                        "OOO",
+                        "MOO",
+                        "OOO",
+                }), kara);
+
+        kara.move();
+        assertEquals("Die Welten sind nicht korrekt",
+                new JunitKaraRunner(1, 0, Orientation.RIGHT, new String[] {
+                        "OOO",
+                        "OMO",
+                        "OOO",
+                }), kara);
+
+        kara.turnLeft();
+        kara.turnLeft();
+        kara.move();
+
+        kara.move();
+        assertEquals("Die Welten sind nicht korrekt",
+                new JunitKaraRunner(1, 1, Orientation.LEFT, new String[] {
+                        "OOO",
+                        "MOO",
+                        "OOO",
+                }), kara);
+
+        kara.move();
+        assertEquals("Die Welten sind nicht korrekt",
+                new JunitKaraRunner(1, 0, Orientation.LEFT, new String[] {
+                        "OOO",
+                        "OOM",
+                        "OOO",
+                }), kara);
+
+        kara.move();
+        assertEquals("Die Welten sind nicht korrekt",
+                new JunitKaraRunner(1, 2, Orientation.LEFT, new String[] {
+                        "OOO",
+                        "OMO",
+                        "OOO",
+                }), kara);
+    }
+
     private String[] getTreeWorld(final int row, final int column) {
         if (row == 0 && column == 0) {
             return new String[] {

@@ -111,11 +111,20 @@ public class JunitKaraRunner extends KaraRunner {
     @Override
     public void move() {
         Offset offset = karaOrientation.front();
-        karaColumn = actualColumn(karaColumn + offset.x);
         karaRow = actualRow(karaRow + offset.y);
+        karaColumn = actualColumn(karaColumn + offset.x);
 
         if (kara() == Element.T) {
             throw new AssertionFailedException("Can't enter a cell that contains a tree.");
+        }
+        else if (kara() == Element.M) {
+            int mushroomRow = actualRow(karaRow + offset.y);
+            int mushroomColumn = actualColumn(karaColumn + offset.x);
+            if (world(mushroomRow, mushroomColumn) != Element.O) {
+                throw new AssertionFailedException("Can't move mushroom is cell behind is not empty.");
+            }
+            world[karaRow][karaColumn] = Element.O;
+            world[mushroomRow][mushroomColumn] = Element.M;
         }
     }
 

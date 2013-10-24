@@ -376,7 +376,7 @@ public class JunitKaraRunner extends KaraRunner {
         public abstract Orientation right();
 
         /**
-         * Returns the offset of the element in front of kara.
+         * Returns the offset of the element in front of Kara.
          *
          * @return the offset
          */
@@ -392,12 +392,12 @@ public class JunitKaraRunner extends KaraRunner {
          * @param y
          *            vertical offset
          */
-        public Offset(final int x, final int y) {
+        Offset(final int x, final int y) {
             this.x = x;
             this.y = y;
         }
 
-        int x;
-        int y;
+        private final int x;
+        private final int y;
     }
 }

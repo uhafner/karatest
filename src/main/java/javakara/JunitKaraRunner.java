@@ -10,81 +10,6 @@ import java.util.Arrays;
 public class JunitKaraRunner extends KaraRunner {
     private static final String NEWLINE = "\n";
 
-    /**
-     * The valid elements in Kara's world. [T]ree, [L]eaf, [M]ushroom and N[O]thing.
-     */
-    private enum Element {
-        T, L, M, O;
-    }
-
-    /**
-     * The orientation of Kara.
-     */
-    public enum Orientation {
-        /** Kara is looking to the left. */
-        LEFT {
-            @Override
-            public Orientation left() {
-                return DOWN;
-            }
-
-            @Override
-            public Orientation right() {
-                return UP;
-            }
-        },
-        /** Kara is looking to the right. */
-        RIGHT {
-            @Override
-            public Orientation left() {
-                return UP;
-            }
-
-            @Override
-            public Orientation right() {
-                return DOWN;
-            }
-        },
-        /** Kara is looking up. */
-        UP {
-            @Override
-            public Orientation left() {
-                return LEFT;
-            }
-
-            @Override
-            public Orientation right() {
-                return RIGHT;
-            }
-        },
-        /** Kara is looking down. */
-        DOWN {
-            @Override
-            public Orientation left() {
-                return RIGHT;
-            }
-
-            @Override
-            public Orientation right() {
-                return LEFT;
-            }
-        };
-
-        /**
-         * Turns left through 90 degrees.
-         *
-         * @return the new orientation
-         */
-        public abstract Orientation left();
-
-        /**
-         * Turns right through 90 degrees.
-         *
-         * @return the new orientation
-         */
-        public abstract Orientation right();
-    }
-
     private Element[][] world = new Element[0][0];
 
     private Orientation karaOrientation;
@@ -153,8 +78,8 @@ public class JunitKaraRunner extends KaraRunner {
     }
 
     private void allocateWorld(final int rows, final int columns) {
-        Ensure.that(columns > 0).isTrue("Number of columns must be positive.");
         Ensure.that(rows > 0).isTrue("Number of rows must be positive.");
+        Ensure.that(columns > 0).isTrue("Number of columns must be positive.");
 
         worldRows = rows;
         worldColumns = columns;
@@ -185,30 +110,10 @@ public class JunitKaraRunner extends KaraRunner {
 
     @Override
     public void move() {
-        if (karaOrientation == Orientation.RIGHT) {
-            karaColumn++;
-            if (karaColumn == worldColumns) {
-                karaColumn = 0;
-            }
-        }
-        else if (karaOrientation == Orientation.LEFT) {
-            karaColumn--;
-            if (karaColumn == -1) {
-                karaColumn = worldColumns - 1;
-            }
-        }
-        else if (karaOrientation == Orientation.DOWN) {
-            karaRow++;
-            if (karaRow == worldRows) {
-                karaRow = 0;
-            }
-        }
-        else if (karaOrientation == Orientation.UP) {
-            karaRow--;
-            if (karaRow == -1) {
-                karaRow = worldRows - 1;
-            }
-        }
+        Offset offset = karaOrientation.front();
+        karaColumn = actualColumn(karaColumn + offset.x);
+        karaRow = actualRow(karaRow + offset.y);
+
         if (kara() == Element.T) {
             throw new AssertionFailedException("Can't enter a cell that contains a tree.");
         }
@@ -249,7 +154,39 @@ public class JunitKaraRunner extends KaraRunner {
     }
 
     private Element kara() {
-        return world[karaRow][karaColumn];
+        return world(karaRow, karaColumn);
+    }
+
+    private Element world(final int row, final int column) {
+        return world[actualRow(row)][actualColumn(column)];
+    }
+
+    private int actualRow(final int row) {
+        int actualRow;
+        if (row >= worldRows) {
+            actualRow = 0;
+        }
+        else if (row == -1) {
+            actualRow = worldRows - 1;
+        }
+        else {
+            actualRow = row;
+        }
+        return actualRow;
+    }
+
+    private int actualColumn(final int column) {
+        int actualColumn;
+        if (column >= worldColumns) {
+            actualColumn = 0;
+        }
+        else if (column == -1) {
+            actualColumn = worldColumns - 1;
+        }
+        else {
+            actualColumn = column;
+        }
+        return actualColumn;
     }
 
     @Override
@@ -257,24 +194,28 @@ public class JunitKaraRunner extends KaraRunner {
         return kara() == Element.L;
     }
 
+    private Element offset(final Offset offset) {
+        return world(karaRow + offset.y, karaColumn + offset.x);
+    }
+
     @Override
     public boolean treeFront() {
-        return false; // FIXME: implement feature
+        return offset(karaOrientation.front()) == Element.T;
     }
 
     @Override
     public boolean treeLeft() {
-        return false; // FIXME: implement feature
+        return offset(karaOrientation.left().front()) == Element.T;
     }
 
     @Override
     public boolean treeRight() {
-        return false; // FIXME: implement feature
+        return offset(karaOrientation.right().front()) == Element.T;
     }
 
     @Override
     public boolean mushroomFront() {
-        return false; // FIXME: implement feature
+        return offset(karaOrientation.front()) == Element.M;
     }
 
     @Override
@@ -329,5 +270,125 @@ public class JunitKaraRunner extends KaraRunner {
             return false;
         }
         return true;
+    }
+
+    /**
+     * The valid elements in Kara's world. [T]ree, [L]eaf, [M]ushroom and N[O]thing.
+     */
+    private enum Element {
+        T, L, M, O;
+    }
+
+    /**
+     * The orientation of Kara.
+     */
+    public enum Orientation {
+        /** Kara is looking to the left. */
+        LEFT {
+            @Override
+            public Orientation left() {
+                return DOWN;
+            }
+
+            @Override
+            public Orientation right() {
+                return UP;
+            }
+
+            @Override
+            public Offset front() {
+                return new Offset(-1, 0);
+            }
+        },
+        /** Kara is looking to the right. */
+        RIGHT {
+            @Override
+            public Orientation left() {
+                return UP;
+            }
+
+            @Override
+            public Orientation right() {
+                return DOWN;
+            }
+
+            @Override
+            public Offset front() {
+                return new Offset(1, 0);
+            }
+       },
+        /** Kara is looking up. */
+        UP {
+            @Override
+            public Orientation left() {
+                return LEFT;
+            }
+
+            @Override
+            public Orientation right() {
+                return RIGHT;
+            }
+
+            @Override
+            public Offset front() {
+                return new Offset(0, -1);
+            }
+        },
+        /** Kara is looking down. */
+        DOWN {
+            @Override
+            public Orientation left() {
+                return RIGHT;
+            }
+
+            @Override
+            public Orientation right() {
+                return LEFT;
+            }
+
+            @Override
+            public Offset front() {
+                return new Offset(0, 1);
+            }
+        };
+
+        /**
+         * Turns left through 90 degrees.
+         *
+         * @return the new orientation
+         */
+        public abstract Orientation left();
+
+        /**
+         * Turns right through 90 degrees.
+         *
+         * @return the new orientation
+         */
+        public abstract Orientation right();
+
+        /**
+         * Returns the offset of the element in front of kara.
+         *
+         * @return the offset
+         */
+        public abstract Offset front();
+    }
+
+    private static class Offset {
+        /**
+         * Creates a new instance of {@link Offset}.
+         *
+         * @param x
+         *            horizontal offset
+         * @param y
+         *            vertical offset
+         */
+        public Offset(final int x, final int y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        int x;
+        int y;
     }
 }

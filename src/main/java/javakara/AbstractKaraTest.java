@@ -1,5 +1,7 @@
 package javakara;
 
+import static org.mockito.Mockito.*;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -34,8 +36,24 @@ public abstract class AbstractKaraTest {
      *             if the program method could not be started
      */
     protected void runProgram(final JunitKaraRunner karaRunner) {
+        runProgram(karaRunner, mock(Tools.class));
+    }
+
+    /**
+     * Runs the program. The program must be defined in a method called 'myProgram'. The method is called using
+     * reflection so implementors do not need to add an override annotation at their implementation.
+     *
+     * @param karaRunner
+     *            the runner with the initial world to run the program with
+     * @param tools
+     *            the tools stub or mock to run the program with
+     * @throws IllegalArgumentException
+     *             if the program method could not be started
+     */
+    protected void runProgram(final JunitKaraRunner karaRunner, final Tools tools) {
         JavaKaraProgram program = createProgram();
         program.setRunner(karaRunner);
+        program.setTools(tools);
 
         Method run;
         try {
@@ -48,4 +66,3 @@ public abstract class AbstractKaraTest {
         }
     }
 }
-

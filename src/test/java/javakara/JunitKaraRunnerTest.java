@@ -272,4 +272,57 @@ public class JunitKaraRunnerTest {
         }
     }
 
+    /**
+     * Verifies that we can't move a mushroom if there is a tree in front.
+     */
+    @Test
+    public void moveMushroomTreeInFront() {
+        moveOverTree("OMT");
+        moveOverTree("TOM");
+        moveOverTree("MTO");
+    }
+
+    private void moveOverTree(final String world) {
+        try {
+            JunitKaraRunner kara = new JunitKaraRunner(0,
+                    world.indexOf("O"), Orientation.RIGHT,
+                    new String[] {
+                        world,
+                    });
+            kara.move();
+            fail("Mushroom is moved over tree");
+        }
+        catch (AssertionFailedException exception) {
+            // ignore and return
+        }
+    }
+
+    /**
+     * Verifies that we can move a mushroom onto a leaf.
+     */
+    @Test
+    public void moveMushroomOverLeaf() {
+        JunitKaraRunner kara = new JunitKaraRunner(0,
+                0, Orientation.RIGHT,
+                new String[] {
+                    "OLM",
+                });
+
+        kara.move();
+        verifyMushroomOverLeaf(kara, "OLM", 1);
+
+        kara.move();
+        verifyMushroomOverLeaf(kara, "MLO", 2);
+
+        kara.move();
+        verifyMushroomOverLeaf(kara, "OAO", 0);
+    }
+
+    private void verifyMushroomOverLeaf(final JunitKaraRunner kara, final String expectedWorld, final int expectedColumn) {
+        assertEquals("Die Welten sind nicht korrekt",
+                new JunitKaraRunner(0, expectedColumn, Orientation.RIGHT,
+                        new String[] {
+                            expectedWorld,
+                        }), kara);
+    }
 }

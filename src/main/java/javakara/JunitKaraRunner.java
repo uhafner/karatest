@@ -120,11 +120,17 @@ public class JunitKaraRunner extends KaraRunner {
         else if (kara() == Element.M) {
             int mushroomRow = actualRow(karaRow + offset.y);
             int mushroomColumn = actualColumn(karaColumn + offset.x);
-            if (world(mushroomRow, mushroomColumn) != Element.O) {
-                throw new AssertionFailedException("Can't move mushroom is cell behind is not empty.");
+            Element newCell = world(mushroomRow, mushroomColumn);
+            if (newCell == Element.T) {
+                throw new AssertionFailedException("Can't move mushroom if cell behind is a tree.");
             }
             world[karaRow][karaColumn] = Element.O;
-            world[mushroomRow][mushroomColumn] = Element.M;
+            if (newCell == Element.O) {
+                world[mushroomRow][mushroomColumn] = Element.M;
+            }
+            else {
+                world[mushroomRow][mushroomColumn] = Element.A;
+            }
         }
     }
 
@@ -282,10 +288,10 @@ public class JunitKaraRunner extends KaraRunner {
     }
 
     /**
-     * The valid elements in Kara's world. [T]ree, [L]eaf, [M]ushroom and N[O]thing.
+     * The valid elements in Kara's world. [T]ree, [L]eaf, [M]ushroom, Lead [A]nd Mushroom, and N[O]thing.
      */
     private enum Element {
-        T, L, M, O;
+        T, L, M, O, A;
     }
 
     /**

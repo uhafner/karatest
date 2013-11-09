@@ -30,6 +30,8 @@ public class JunitKaraRunner extends KaraRunner {
      *            Kara's orientation
      */
     private JunitKaraRunner(final int row, final int column, final Orientation orientation) {
+        super();
+
         Ensure.that(orientation).isNotNull();
 
         karaRow = row;
@@ -251,7 +253,7 @@ public class JunitKaraRunner extends KaraRunner {
 
     @Override
     public int hashCode() {
-        final int prime = 31;
+        int prime = 31;
         int result = 1;
         result = prime * result + karaColumn;
         result = prime * result + ((karaOrientation == null) ? 0 : karaOrientation.hashCode());

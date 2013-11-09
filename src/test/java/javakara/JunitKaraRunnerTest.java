@@ -285,7 +285,7 @@ public class JunitKaraRunnerTest {
     private void moveOverTree(final String world) {
         try {
             JunitKaraRunner kara = new JunitKaraRunner(0,
-                    world.indexOf("O"), Orientation.RIGHT,
+                    world.indexOf('O'), Orientation.RIGHT,
                     new String[] {
                         world,
                     });

@@ -65,7 +65,7 @@ public abstract class AbstractKaraTest {
         }
         catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
                 | InvocationTargetException exception) {
-            throw new IllegalArgumentException(exception);
+            throw new AssertionFailedException("Can't invoke myProgram()", exception);
         }
     }
 

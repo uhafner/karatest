@@ -31,11 +31,6 @@
    <rule ref="rulesets/java/basic.xml/AvoidBranchingStatementAsLastInLoop"/>
    <rule ref="rulesets/java/basic.xml/DontCallThreadRun"/>
    <rule ref="rulesets/java/basic.xml/DontUseFloatTypeForLoopIndices"/>
-   <rule ref="rulesets/java/basic.xml/EmptyCatchBlock">
-    <properties>
-      <property name="allowCommentedBlocks" value="true"/>
-    </properties>
-  </rule>
    <rule ref="rulesets/java/basic.xml/EmptyIfStmt"/>
    <rule ref="rulesets/java/basic.xml/EmptyWhileStmt"/>
    <rule ref="rulesets/java/basic.xml/EmptyTryBlock"/>
@@ -109,8 +104,6 @@
    <rule ref="rulesets/java/design.xml/TooFewBranchesForASwitchStatement"/>
    <rule ref="rulesets/java/design.xml/LogicInversion"/>
    <rule ref="rulesets/java/design.xml/UseVarargs"/>
-   <rule ref="rulesets/java/design.xml/FieldDeclarationsShouldBeAtStartOfClass"/>
-   <rule ref="rulesets/java/design.xml/GodClass"/>
    <rule ref="rulesets/java/logging-java.xml/MoreThanOneLogger"/>
    <rule ref="rulesets/java/logging-java.xml/LoggerIsNotStaticFinal"/>
    <rule ref="rulesets/java/logging-java.xml/SystemPrintln"/>
@@ -168,7 +161,11 @@
    <rule ref="rulesets/java/android.xml/CallSuperFirst"/>
    <rule ref="rulesets/java/android.xml/CallSuperLast"/>
    <rule ref="rulesets/java/android.xml/DoNotHardCodeSDCard"/>
-   <rule ref="rulesets/java/empty.xml/EmptyCatchBlock"/>
+   <rule ref="rulesets/java/empty.xml/EmptyCatchBlock">
+     <properties>
+       <property name="allowCommentedBlocks" value="true"/>
+     </properties>
+   </rule>
    <rule ref="rulesets/java/empty.xml/EmptyIfStmt"/>
    <rule ref="rulesets/java/empty.xml/EmptyWhileStmt"/>
    <rule ref="rulesets/java/empty.xml/EmptyTryBlock"/>
@@ -195,19 +192,15 @@
    <rule ref="rulesets/java/strictexception.xml/AvoidThrowingNewInstanceOfSameException"/>
    <rule ref="rulesets/java/strictexception.xml/AvoidCatchingGenericException"/>
    <rule ref="rulesets/java/strictexception.xml/AvoidLosingExceptionInformation"/>
-   <rule ref="rulesets/java/javabeans.xml/BeanMembersShouldSerialize"/>
    <rule ref="rulesets/java/javabeans.xml/MissingSerialVersionUID"/>
    <rule ref="rulesets/java/junit.xml/JUnitStaticSuite"/>
    <rule ref="rulesets/java/junit.xml/JUnitSpelling"/>
    <rule ref="rulesets/java/junit.xml/JUnitAssertionsShouldIncludeMessage"/>
-   <rule ref="rulesets/java/junit.xml/JUnitTestsShouldIncludeAssert"/>
-   <rule ref="rulesets/java/junit.xml/TestClassWithoutTestCases"/>
    <rule ref="rulesets/java/junit.xml/UnnecessaryBooleanAssertion"/>
    <rule ref="rulesets/java/junit.xml/UseAssertEqualsInsteadOfAssertTrue"/>
    <rule ref="rulesets/java/junit.xml/UseAssertSameInsteadOfAssertTrue"/>
    <rule ref="rulesets/java/junit.xml/UseAssertNullInsteadOfAssertTrue"/>
    <rule ref="rulesets/java/junit.xml/SimplifyBooleanAssertion"/>
-   <rule ref="rulesets/java/junit.xml/JUnitTestContainsTooManyAsserts"/>
    <rule ref="rulesets/java/junit.xml/UseAssertTrueInsteadOfAssertEquals"/>
    <rule ref="rulesets/java/strings.xml/StringInstantiation"/>
    <rule ref="rulesets/java/strings.xml/StringToString"/>
@@ -260,7 +253,6 @@
    <rule ref="rulesets/java/naming.xml/AvoidFieldNameMatchingTypeName"/>
    <rule ref="rulesets/java/naming.xml/PackageCase"/>
    <rule ref="rulesets/java/naming.xml/MisleadingVariableName"/>
-   <rule ref="rulesets/java/naming.xml/ShortClassName"/>
    <rule ref="rulesets/java/naming.xml/GenericsNaming"/>
    <rule ref="rulesets/java/codesize.xml/NPathComplexity"/>
    <rule ref="rulesets/java/codesize.xml/ExcessiveMethodLength"/>
@@ -282,7 +274,6 @@
    <rule ref="rulesets/java/coupling.xml/CouplingBetweenObjects"/>
    <rule ref="rulesets/java/coupling.xml/ExcessiveImports"/>
    <rule ref="rulesets/java/coupling.xml/LooseCoupling"/>
-   <rule ref="rulesets/java/coupling.xml/LawOfDemeter"/>
    <rule ref="rulesets/java/j2ee.xml/UseProperClassLoader"/>
    <rule ref="rulesets/java/j2ee.xml/MDBAndSessionBeanNamingConvention"/>
    <rule ref="rulesets/java/j2ee.xml/RemoteSessionInterfaceNamingConvention"/>

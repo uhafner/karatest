@@ -59,16 +59,21 @@ public class JunitKaraRunnerTest {
         for (Orientation orientation : Orientation.values()) {
             for (int row = 0; row < 2; row++) {
                 for (int column = 0; column < 2; column++) {
-                    JunitKaraRunner kara = new JunitKaraRunner(row, column, orientation, getMushroomWorld(row, column));
-                    assertTrue("Kara is not on leaf", kara.onLeaf());
-                    assertFalse("Tree in front", kara.treeFront());
-                    assertFalse("Tree on the left", kara.treeLeft());
-                    assertFalse("Tree on the right", kara.treeRight());
-
-                    assertTrue("No mushroom in front", kara.mushroomFront());
+                    verifyMushrooms(orientation, row, column, getMushroomWorld(row, column));
+                    verifyMushrooms(orientation, row, column, getMushroomAndLeafWorld(row, column));
                 }
             }
         }
+    }
+
+    private void verifyMushrooms(final Orientation orientation, final int row, final int column, final String[] world) {
+        JunitKaraRunner kara = new JunitKaraRunner(row, column, orientation, world);
+        assertTrue("Kara is not on leaf", kara.onLeaf());
+        assertFalse("Tree in front", kara.treeFront());
+        assertFalse("Tree on the left", kara.treeLeft());
+        assertFalse("Tree on the right", kara.treeRight());
+
+        assertTrue("No mushroom in front", kara.mushroomFront());
     }
 
     /**
@@ -272,14 +277,61 @@ public class JunitKaraRunnerTest {
         }
     }
 
+    private String[] getMushroomAndLeafWorld(final int row, final int column) {
+        if (row == 0 && column == 0) {
+            return new String[] {
+                "LA",
+                "AA"
+            };
+        }
+        else  if (row == 0 && column == 1) {
+            return new String[] {
+                "AL",
+                "AA"
+            };
+        }
+        else if (row == 1 && column == 0) {
+            return new String[] {
+                "AA",
+                "LA"
+            };
+        }
+        else {
+            return new String[] {
+                "AA",
+                "AL"
+            };
+        }
+    }
+
     /**
-     * Verifies that we can't move a mushroom if there is a tree in front.
+     * Verifies that we can't move a mushroom if there is an obstacle behind.
      */
     @Test
     public void moveMushroomTreeInFront() {
         moveOverTree("OMT");
         moveOverTree("TOM");
         moveOverTree("MTO");
+
+        moveOverTree("OAT");
+        moveOverTree("TOA");
+        moveOverTree("ATO");
+
+        moveOverTree("OMM");
+        moveOverTree("MOM");
+        moveOverTree("MMO");
+
+        moveOverTree("OAM");
+        moveOverTree("MOA");
+        moveOverTree("AMO");
+
+        moveOverTree("OMA");
+        moveOverTree("AOM");
+        moveOverTree("MAO");
+
+        moveOverTree("OAA");
+        moveOverTree("AOA");
+        moveOverTree("AAO");
     }
 
     private void moveOverTree(final String world) {
@@ -290,7 +342,7 @@ public class JunitKaraRunnerTest {
                         world,
                     });
             kara.move();
-            fail("Mushroom is moved over tree");
+            fail("Mushroom is moved over obstacle");
         }
         catch (AssertionFailedException exception) {
             // ignore and return
@@ -316,6 +368,9 @@ public class JunitKaraRunnerTest {
 
         kara.move();
         verifyMushroomOverLeaf(kara, "OAO", 0);
+
+        kara.move();
+        verifyMushroomOverLeaf(kara, "OLM", 1);
     }
 
     private void verifyMushroomOverLeaf(final JunitKaraRunner kara, final String expectedWorld, final int expectedColumn) {

@@ -117,23 +117,36 @@ public class JunitKaraRunner extends KaraRunner {
         karaColumn = actualColumn(karaColumn + offset.x);
 
         if (kara() == Element.T) {
-            throw new AssertionFailedException("Can't enter a cell that contains a tree.");
+            throw new AssertionFailedException("Can't enter a cell that contains a tree:\n" + toString());
         }
-        else if (kara() == Element.M) {
+        else if (containsMushroom(kara())) {
             int mushroomRow = actualRow(karaRow + offset.y);
             int mushroomColumn = actualColumn(karaColumn + offset.x);
             Element newCell = world(mushroomRow, mushroomColumn);
-            if (newCell == Element.T) {
-                throw new AssertionFailedException("Can't move mushroom if cell behind is a tree.");
+            if (newCell == Element.T || containsMushroom(newCell)) {
+                throw new AssertionFailedException("Can't move mushroom if cell behind contains a tree or mushroom.");
             }
-            world[karaRow][karaColumn] = Element.O;
-            if (newCell == Element.O) {
-                world[mushroomRow][mushroomColumn] = Element.M;
+
+            Element karaCell;
+            if (kara() == Element.M) {
+                karaCell = Element.O;
             }
             else {
-                world[mushroomRow][mushroomColumn] = Element.A;
+                karaCell = Element.L;
             }
+            if (newCell == Element.O) {
+                newCell = Element.M;
+            }
+            else {
+                newCell = Element.A;
+            }
+            world[karaRow][karaColumn] = karaCell;
+            world[mushroomRow][mushroomColumn] = newCell;
         }
+    }
+
+    private boolean containsMushroom(final Element newCell) {
+        return newCell == Element.M || newCell == Element.A;
     }
 
     @Override
@@ -232,7 +245,7 @@ public class JunitKaraRunner extends KaraRunner {
 
     @Override
     public boolean mushroomFront() {
-        return offset(karaOrientation.front()) == Element.M;
+        return containsMushroom(offset(karaOrientation.front()));
     }
 
     @Override

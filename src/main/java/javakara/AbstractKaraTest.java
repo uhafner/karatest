@@ -70,6 +70,25 @@ public abstract class AbstractKaraTest {
     }
 
     /**
+     * Verifies that the program under test creates the expected world. The world is empty and Kara is set to 0, 0 with
+     * orientation to the right. Kara must be at the same position after the program finished.
+     *
+     * @param width
+     *            the width of the empty world
+     * @param height
+     *            the height of the empty world
+     * @param expected
+     *            the expected result
+     */
+    protected void verifyWorld(final int width, final int height, final String[] expected) {
+        JunitKaraRunner karaRunner = new JunitKaraRunner(0, 0, Orientation.RIGHT, width, height);
+        runProgram(karaRunner);
+
+        assertEquals("Die Welten sind nicht korrekt", new JunitKaraRunner(0, 0, Orientation.RIGHT, expected),
+                karaRunner);
+    }
+
+    /**
      * Verifies that the program under test creates the expected world. The world is initialized with the start values
      * and Kara is set to 0, 0 with orientation to the right. Kara must be at the same position after the program
      * finished.

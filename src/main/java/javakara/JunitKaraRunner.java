@@ -16,8 +16,8 @@ public class JunitKaraRunner extends KaraRunner {
     private int karaColumn;
     private int karaRow;
 
-    private int worldRows;
-    private int worldColumns;
+    private int height;
+    private int width;
 
     /**
      * Creates a new instance of {@link JunitKaraRunner}.
@@ -48,16 +48,21 @@ public class JunitKaraRunner extends KaraRunner {
      *            Kara's column
      * @param orientation
      *            Kara's orientation
-     * @param rows
-     *            Number of empty rows
-     * @param columns
-     *            Number of empty columns
+     * @param height
+     *            Number of empty height
+     * @param width
+     *            Number of empty width
      */
-    public JunitKaraRunner(final int row, final int column, final Orientation orientation, final int rows,
-            final int columns) {
+    public JunitKaraRunner(final int row, final int column, final Orientation orientation, final int height,
+            final int width) {
         this(row, column, orientation);
 
-        createWorld(rows, columns);
+        createWorld(height, width);
+        verifyKarasInitialPosition();
+    }
+
+    private boolean canEnter() {
+        return kara() == Element.L || kara() == Element.O;
     }
 
     /**
@@ -77,15 +82,39 @@ public class JunitKaraRunner extends KaraRunner {
         Ensure.that(content).isNotEmpty("The content of the world must be not empty");
 
         createWorld(content);
+        verifyKarasInitialPosition();
+    }
+
+    /**
+     * Returns the width of the world.
+     *
+     * @return the width
+     */
+    public int getWidth() {
+        return width;
+    }
+
+    /**
+     * Returns the height of the world.
+     *
+     * @return the height
+     */
+    public int getHeight() {
+        return height;
+    }
+
+    private void verifyKarasInitialPosition() {
+        Ensure.that(canEnter()).isTrue("Kara is not starting on an empty cell.");
     }
 
     private void allocateWorld(final int rows, final int columns) {
-        Ensure.that(rows > 0).isTrue("Number of rows must be positive.");
-        Ensure.that(columns > 0).isTrue("Number of columns must be positive.");
+        Ensure.that(rows > 0).isTrue("Height %d must be positive.", rows);
+        Ensure.that(columns > 0).isTrue("Width %d must be positive.", columns);
 
-        worldRows = rows;
-        worldColumns = columns;
-        world = new Element[rows][columns];
+        height = rows;
+        width = columns;
+
+        world = new Element[height][width];
     }
 
     private void createWorld(final int rows, final int columns) {
@@ -101,10 +130,10 @@ public class JunitKaraRunner extends KaraRunner {
     private void createWorld(final String[] content) {
         allocateWorld(content.length, content[0].length());
 
-        for (int row = 0; row < worldRows; row++) {
+        for (int row = 0; row < height; row++) {
             String currentRow = content[row];
-            Ensure.that(currentRow.length() == worldColumns).isTrue("All rows must have the same number of columns");
-            for (int column = 0; column < worldColumns; column++) {
+            Ensure.that(currentRow.length() == width).isTrue("Each row must have the same width");
+            for (int column = 0; column < width; column++) {
                 world[row][column] = Element.valueOf(String.valueOf(currentRow.charAt(column)));
             }
         }
@@ -117,14 +146,14 @@ public class JunitKaraRunner extends KaraRunner {
         karaColumn = actualColumn(karaColumn + offset.x);
 
         if (kara() == Element.T) {
-            throw new AssertionFailedException("Can't enter a cell that contains a tree:\n" + toString());
+            fail("Can't enter a cell that contains a tree.");
         }
         else if (containsMushroom(kara())) {
             int mushroomRow = actualRow(karaRow + offset.y);
             int mushroomColumn = actualColumn(karaColumn + offset.x);
             Element newCell = world(mushroomRow, mushroomColumn);
             if (newCell == Element.T || containsMushroom(newCell)) {
-                throw new AssertionFailedException("Can't move mushroom if cell behind contains a tree or mushroom.");
+                fail("Can't move mushroom if cell behind contains a tree or mushroom.");
             }
 
             Element karaCell;
@@ -143,6 +172,10 @@ public class JunitKaraRunner extends KaraRunner {
             world[karaRow][karaColumn] = karaCell;
             world[mushroomRow][mushroomColumn] = newCell;
         }
+    }
+
+    private String fail(final String message) {
+        throw new AssertionFailedException(message + NEWLINE + toString());
     }
 
     private boolean containsMushroom(final Element newCell) {
@@ -165,7 +198,7 @@ public class JunitKaraRunner extends KaraRunner {
             kara(Element.L);
         }
         else {
-            throw new AssertionFailedException("The current cell already contains a leaf.");
+            fail("The current cell already contains a leaf.");
         }
     }
 
@@ -175,7 +208,7 @@ public class JunitKaraRunner extends KaraRunner {
             kara(Element.O);
         }
         else {
-            throw new AssertionFailedException("The current cell contains no leaf.");
+            fail("The current cell contains no leaf.");
         }
     }
 
@@ -193,11 +226,11 @@ public class JunitKaraRunner extends KaraRunner {
 
     private int actualRow(final int row) {
         int actualRow;
-        if (row >= worldRows) {
+        if (row >= height) {
             actualRow = 0;
         }
         else if (row == -1) {
-            actualRow = worldRows - 1;
+            actualRow = height - 1;
         }
         else {
             actualRow = row;
@@ -207,11 +240,11 @@ public class JunitKaraRunner extends KaraRunner {
 
     private int actualColumn(final int column) {
         int actualColumn;
-        if (column >= worldColumns) {
+        if (column >= width) {
             actualColumn = 0;
         }
         else if (column == -1) {
-            actualColumn = worldColumns - 1;
+            actualColumn = width - 1;
         }
         else {
             actualColumn = column;
@@ -252,7 +285,7 @@ public class JunitKaraRunner extends KaraRunner {
     public String toString() {
         StringBuilder content = new StringBuilder();
         content.append(NEWLINE);
-        content.append(String.format("Kara: [%d, %d, %s]", karaRow, karaColumn, karaOrientation));
+        content.append(showKara());
         content.append(NEWLINE);
         for (int row = 0; row < world.length; row++) {
             Element[] currentRow = world[row];
@@ -262,6 +295,15 @@ public class JunitKaraRunner extends KaraRunner {
             content.append(NEWLINE);
         }
         return content.toString();
+    }
+
+    /**
+     * Shows the position of Kara.
+     *
+     * @return a String representing the position of Kara
+     */
+    public String showKara() {
+        return String.format("Kara: [%d, %d, %s]", karaRow, karaColumn, karaOrientation);
     }
 
     @Override
@@ -346,7 +388,7 @@ public class JunitKaraRunner extends KaraRunner {
             public Offset front() {
                 return new Offset(1, 0);
             }
-       },
+        },
         /** Kara is looking up. */
         UP {
             @Override
@@ -421,4 +463,5 @@ public class JunitKaraRunner extends KaraRunner {
         private final int x;
         private final int y;
     }
+
 }

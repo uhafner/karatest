@@ -122,7 +122,7 @@ public abstract class AbstractKaraTest {
 
     /**
      * Verifies that the program under test creates the expected world and Kara is set to the expected position. The
-     * world is initialized with the start values and Kara is set to 0, 0 with orientation to the right.
+     * world is initialized with the start values and Kara is put at the specified position..
      *
      * @param start
      *            the start world
@@ -150,6 +150,37 @@ public abstract class AbstractKaraTest {
 
         assertEquals("Die Welten sind nicht korrekt", new JunitKaraRunner(expectedKaraRow, expectedKaraColumn,
                 expectedKaraOrientation, expected), karaRunner);
+    }
+    // CHECKSTYLE:ON
+
+    /**
+     * Verifies that the program under test moves to the expected position. The
+     * world is initialized with the start values and Kara is put at the specified position.
+     *
+     * @param start
+     *            the start world
+     * @param startKaraRow
+     *            the start row of Kara
+     * @param startKaraColumn
+     *            the start column of Kara
+     * @param startKaraOrientation
+     *            the start orientation of Kara
+     * @param expectedKaraRow
+     *            the expected row of Kara
+     * @param expectedKaraColumn
+     *            the expected column of Kara
+     * @param expectedKaraOrientation
+     *            the start orientation of Kara
+     */
+    // CHECKSTYLE:OFF
+    protected void verifyKara(final String[] start, final int startKaraRow, final int startKaraColumn,
+            final Orientation startKaraOrientation, final int expectedKaraRow,
+            final int expectedKaraColumn, final Orientation expectedKaraOrientation) {
+        JunitKaraRunner karaRunner = new JunitKaraRunner(startKaraRow, startKaraColumn, startKaraOrientation, start);
+        runProgram(karaRunner);
+
+        assertEquals("Kara ist an der falschen Stelle", new JunitKaraRunner(expectedKaraRow, expectedKaraColumn,
+                expectedKaraOrientation, karaRunner.getHeight(), karaRunner.getWidth()).showKara(), karaRunner.showKara());
     }
     // CHECKSTYLE:ON
 }

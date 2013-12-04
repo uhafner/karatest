@@ -8,20 +8,12 @@ import java.lang.reflect.Method;
 
 import javakara.JunitKaraRunner.Orientation;
 
-import org.junit.Rule;
-import org.junit.rules.Timeout;
-
 /**
  * Base class for Kara tests.
  *
  * @author Ulli Hafner
  */
 public abstract class AbstractKaraTest {
-    /** Fails a test if the source code contains an infinite loop. */
-    @Rule
-    @edu.umd.cs.findbugs.annotations.SuppressWarnings("URF")
-    public final Timeout TIME_OUT = new Timeout(10_000); // NOCHECKSTYLE
-
     /**
      * Creates the Kara program under test.
      *
@@ -182,5 +174,5 @@ public abstract class AbstractKaraTest {
         assertEquals("Kara ist an der falschen Stelle", new JunitKaraRunner(expectedKaraRow, expectedKaraColumn,
                 expectedKaraOrientation, karaRunner.getHeight(), karaRunner.getWidth()).showKara(), karaRunner.showKara());
     }
-    // CHECKSTYLE:ON
+    // CHECKSTYLE:ON}
 }

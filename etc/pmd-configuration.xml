@@ -47,7 +47,6 @@
    <rule ref="rulesets/java/basic.xml/UselessOverridingMethod"/>
    <rule ref="rulesets/java/basic.xml/UselessOperationOnImmutable"/>
    <rule ref="rulesets/java/basic.xml/UnusedNullCheckInEquals"/>
-   <rule ref="rulesets/java/basic.xml/UselessParentheses"/>
    <rule ref="rulesets/java/comments.xml/CommentRequired"/>
    <rule ref="rulesets/java/comments.xml/CommentContent"/>
    <rule ref="rulesets/java/unnecessary.xml/UnnecessaryConversionTemporary"/>

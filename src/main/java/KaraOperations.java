@@ -1,5 +1,3 @@
-package javakara;
-
 /**
  * All operations of Kara the ladybug.
  *
@@ -38,21 +36,21 @@ public interface KaraOperations {
     void removeLeaf();
 
     /**
-     * Returns whether a tree is in front of Kara.
+     * Returns whether a tree is in front of
      *
      * @return {@code true} if there is a tree is in front of Kara, {@code false} otherwise
      */
     boolean treeFront();
 
     /**
-     * Returns whether a tree is left of Kara.
+     * Returns whether a tree is left of
      *
      * @return {@code true} if there is a tree is left of Kara, {@code false} otherwise
      */
     boolean treeLeft();
 
     /**
-     * Returns whether a tree is right of Kara.
+     * Returns whether a tree is right of
      *
      * @return {@code true} if there is a tree is right of Kara, {@code false} otherwise
      */
@@ -66,10 +64,9 @@ public interface KaraOperations {
     boolean onLeaf();
 
     /**
-     * Returns whether a mushroom is in front of Kara.
+     * Returns whether a mushroom is in front of
      *
      * @return {@code true} if there is a mushroom is in front of Kara, {@code false} otherwise
      */
     boolean mushroomFront();
-
 }

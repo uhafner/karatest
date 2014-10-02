@@ -1,9 +1,6 @@
-package javakara;
+import org.junit.Test;
 
 import static org.junit.Assert.*;
-import javakara.JunitKaraRunner.Orientation;
-
-import org.junit.Test;
 
 /**
  * Tests the class {@link JunitKaraRunner}.
@@ -83,9 +80,9 @@ public class JunitKaraRunnerTest {
     public void moveMushroomVertically() {
         JunitKaraRunner kara = new JunitKaraRunner(0, 0, Orientation.RIGHT,
                 new String[] {
-                    "OOO",
-                    "OMO",
-                    "OOO",
+                        "OOO",
+                        "OMO",
+                        "OOO",
                 });
         kara.move();
         kara.turnRight();
@@ -96,27 +93,27 @@ public class JunitKaraRunnerTest {
         assertEquals("Die Welten sind nicht korrekt",
                 new JunitKaraRunner(1, 1, Orientation.DOWN,
                         new String[] {
-                            "OOO",
-                            "OOO",
-                            "OMO",
+                                "OOO",
+                                "OOO",
+                                "OMO",
                         }), kara);
 
         kara.move();
         assertEquals("Die Welten sind nicht korrekt",
                 new JunitKaraRunner(2, 1, Orientation.DOWN,
                         new String[] {
-                            "OMO",
-                            "OOO",
-                            "OOO",
+                                "OMO",
+                                "OOO",
+                                "OOO",
                         }), kara);
 
         kara.move();
         assertEquals("Die Welten sind nicht korrekt",
                 new JunitKaraRunner(0, 1, Orientation.DOWN,
                         new String[] {
-                            "OOO",
-                            "OMO",
-                            "OOO",
+                                "OOO",
+                                "OMO",
+                                "OOO",
                         }), kara);
 
         kara.turnLeft();
@@ -127,27 +124,27 @@ public class JunitKaraRunnerTest {
         assertEquals("Die Welten sind nicht korrekt",
                 new JunitKaraRunner(1, 1, Orientation.UP,
                         new String[] {
-                            "OMO",
-                            "OOO",
-                            "OOO",
+                                "OMO",
+                                "OOO",
+                                "OOO",
                         }), kara);
 
         kara.move();
         assertEquals("Die Welten sind nicht korrekt",
                 new JunitKaraRunner(0, 1, Orientation.UP,
                         new String[] {
-                            "OOO",
-                            "OOO",
-                            "OMO",
+                                "OOO",
+                                "OOO",
+                                "OMO",
                         }), kara);
 
         kara.move();
         assertEquals("Die Welten sind nicht korrekt",
                 new JunitKaraRunner(2, 1, Orientation.UP,
                         new String[] {
-                            "OOO",
-                            "OMO",
-                            "OOO",
+                                "OOO",
+                                "OMO",
+                                "OOO",
                         }), kara);
     }
 
@@ -158,9 +155,9 @@ public class JunitKaraRunnerTest {
     public void moveMushroomHoorizontally() {
         JunitKaraRunner kara = new JunitKaraRunner(1, 0, Orientation.RIGHT,
                 new String[] {
-                    "OOO",
-                    "OMO",
-                    "OOO",
+                        "OOO",
+                        "OMO",
+                        "OOO",
                 });
         assertTrue("There is no mushroom in front of Kara", kara.mushroomFront());
 
@@ -168,27 +165,27 @@ public class JunitKaraRunnerTest {
         assertEquals("Die Welten sind nicht korrekt",
                 new JunitKaraRunner(1, 1, Orientation.RIGHT,
                         new String[] {
-                            "OOO",
-                            "OOM",
-                            "OOO",
+                                "OOO",
+                                "OOM",
+                                "OOO",
                         }), kara);
 
         kara.move();
         assertEquals("Die Welten sind nicht korrekt",
                 new JunitKaraRunner(1, 2, Orientation.RIGHT,
                         new String[] {
-                            "OOO",
-                            "MOO",
-                            "OOO",
+                                "OOO",
+                                "MOO",
+                                "OOO",
                         }), kara);
 
         kara.move();
         assertEquals("Die Welten sind nicht korrekt",
                 new JunitKaraRunner(1, 0, Orientation.RIGHT,
                         new String[] {
-                            "OOO",
-                            "OMO",
-                            "OOO",
+                                "OOO",
+                                "OMO",
+                                "OOO",
                         }), kara);
 
         kara.turnLeft();
@@ -199,53 +196,53 @@ public class JunitKaraRunnerTest {
         assertEquals("Die Welten sind nicht korrekt",
                 new JunitKaraRunner(1, 1, Orientation.LEFT,
                         new String[] {
-                            "OOO",
-                            "MOO",
-                            "OOO",
+                                "OOO",
+                                "MOO",
+                                "OOO",
                         }), kara);
 
         kara.move();
         assertEquals("Die Welten sind nicht korrekt",
                 new JunitKaraRunner(1, 0, Orientation.LEFT,
                         new String[] {
-                            "OOO",
-                            "OOM",
-                            "OOO",
+                                "OOO",
+                                "OOM",
+                                "OOO",
                         }), kara);
 
         kara.move();
         assertEquals("Die Welten sind nicht korrekt",
                 new JunitKaraRunner(1, 2, Orientation.LEFT,
                         new String[] {
-                            "OOO",
-                            "OMO",
-                            "OOO",
+                                "OOO",
+                                "OMO",
+                                "OOO",
                         }), kara);
     }
 
     private String[] getTreeWorld(final int row, final int column) {
         if (row == 0 && column == 0) {
             return new String[] {
-                "LT",
-                "TT"
+                    "LT",
+                    "TT"
             };
         }
         else  if (row == 0 && column == 1) {
             return new String[] {
-                "TL",
-                "TT"
+                    "TL",
+                    "TT"
             };
         }
         else if (row == 1 && column == 0) {
             return new String[] {
-                "TT",
-                "LT"
+                    "TT",
+                    "LT"
             };
         }
         else {
             return new String[] {
-                "TT",
-                "TL"
+                    "TT",
+                    "TL"
             };
         }
     }
@@ -253,26 +250,26 @@ public class JunitKaraRunnerTest {
     private String[] getMushroomWorld(final int row, final int column) {
         if (row == 0 && column == 0) {
             return new String[] {
-                "LM",
-                "MM"
+                    "LM",
+                    "MM"
             };
         }
         else  if (row == 0 && column == 1) {
             return new String[] {
-                "ML",
-                "MM"
+                    "ML",
+                    "MM"
             };
         }
         else if (row == 1 && column == 0) {
             return new String[] {
-                "MM",
-                "LM"
+                    "MM",
+                    "LM"
             };
         }
         else {
             return new String[] {
-                "MM",
-                "ML"
+                    "MM",
+                    "ML"
             };
         }
     }
@@ -280,26 +277,26 @@ public class JunitKaraRunnerTest {
     private String[] getMushroomAndLeafWorld(final int row, final int column) {
         if (row == 0 && column == 0) {
             return new String[] {
-                "LA",
-                "AA"
+                    "LA",
+                    "AA"
             };
         }
         else  if (row == 0 && column == 1) {
             return new String[] {
-                "AL",
-                "AA"
+                    "AL",
+                    "AA"
             };
         }
         else if (row == 1 && column == 0) {
             return new String[] {
-                "AA",
-                "LA"
+                    "AA",
+                    "LA"
             };
         }
         else {
             return new String[] {
-                "AA",
-                "AL"
+                    "AA",
+                    "AL"
             };
         }
     }
@@ -339,7 +336,7 @@ public class JunitKaraRunnerTest {
             JunitKaraRunner kara = new JunitKaraRunner(0,
                     world.indexOf('O'), Orientation.RIGHT,
                     new String[] {
-                        world,
+                            world,
                     });
             kara.move();
             fail("Mushroom is moved over obstacle");
@@ -357,7 +354,7 @@ public class JunitKaraRunnerTest {
         JunitKaraRunner kara = new JunitKaraRunner(0,
                 0, Orientation.RIGHT,
                 new String[] {
-                    "OLM",
+                        "OLM",
                 });
 
         kara.move();
@@ -377,7 +374,7 @@ public class JunitKaraRunnerTest {
         assertEquals("Die Welten sind nicht korrekt",
                 new JunitKaraRunner(0, expectedColumn, Orientation.RIGHT,
                         new String[] {
-                            expectedWorld,
+                                expectedWorld,
                         }), kara);
     }
 }

@@ -1,5 +1,3 @@
-package javakara;
-
 import org.junit.Rule;
 import org.junit.rules.Timeout;
 

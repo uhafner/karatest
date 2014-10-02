@@ -1,12 +1,11 @@
-package javakara;
-
 /**
  * Stub for Kara the ladybug.
  *
  * @author Ulli Hafner
  */
 public class Kara implements KaraOperations {
-    private final KaraRunner karaRunner;
+    Tools tools = new Tools();
+    private KaraRunner karaRunner;
 
     /**
      * Creates a new instance of {@link Kara}.
@@ -23,6 +22,10 @@ public class Kara implements KaraOperations {
      */
     public Kara() {
         this(new KaraRunner());
+    }
+
+    public void setRunner(final KaraRunner karaRunner) {
+        this.karaRunner = karaRunner;
     }
 
     @Override
@@ -74,4 +77,13 @@ public class Kara implements KaraOperations {
     public boolean mushroomFront() {
         return karaRunner.mushroomFront();
     }
+
+    public void setTools(final Tools tools) {
+        this.tools = tools;
+    }
+
+    public Tools getTools() {
+        return tools;
+    }
+
 }

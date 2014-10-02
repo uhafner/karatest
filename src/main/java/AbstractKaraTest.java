@@ -1,9 +1,6 @@
-package javakara;
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import javakara.JunitKaraRunner.Orientation;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
@@ -18,7 +15,7 @@ public abstract class AbstractKaraTest {
      *
      * @return the program to test
      */
-    protected abstract JavaKaraProgram createProgram();
+    protected abstract Kara createProgram();
 
     /**
      * Runs the program. The program must be defined in a method called 'myProgram'. The method is called using
@@ -45,18 +42,18 @@ public abstract class AbstractKaraTest {
      *             if the program method could not be started
      */
     protected void runProgram(final JunitKaraRunner karaRunner, final Tools tools) {
-        JavaKaraProgram program = createProgram();
+        Kara program = createProgram();
         program.setRunner(karaRunner);
         program.setTools(tools);
 
         Method run;
         try {
-            run = program.getClass().getDeclaredMethod("myProgram", new Class[0]);
+            run = program.getClass().getDeclaredMethod("act", new Class[0]);
             run.invoke(program, new Object[0]);
         }
         catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
                 | InvocationTargetException exception) {
-            throw new AssertionFailedException("Can't invoke myProgram()", exception);
+            throw new AssertionFailedException("Can't invoke act()", exception);
         }
     }
 

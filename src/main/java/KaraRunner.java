@@ -1,5 +1,3 @@
-package javakara;
-
 /**
  * Null object pattern: this runner does nothing.
  *

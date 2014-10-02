@@ -1,12 +1,11 @@
 package javakara;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import javakara.JunitKaraRunner.Orientation;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 /**
  * Base class for Kara tests.
@@ -72,8 +71,8 @@ public abstract class AbstractKaraTest {
      * @param expected
      *            the expected result
      */
-    protected void verifyWorld(final int width, final int height, final String[] expected) {
-        JunitKaraRunner karaRunner = new JunitKaraRunner(0, 0, Orientation.RIGHT, width, height);
+    protected void verifyWorld(final int height, final int width, final String[] expected) {
+        JunitKaraRunner karaRunner = new JunitKaraRunner(0, 0, Orientation.RIGHT, height, width);
         runProgram(karaRunner);
 
         assertEquals("Die Welten sind nicht korrekt", new JunitKaraRunner(0, 0, Orientation.RIGHT, expected),
@@ -109,7 +108,7 @@ public abstract class AbstractKaraTest {
      */
     protected void verifyWorld(final String[] start, final String[] expected, final int expectedKaraRow,
             final int expectedKaraColumn) {
-        verifyWorld(start, expectedKaraColumn, expectedKaraColumn, Orientation.RIGHT, expected, 0, 0, Orientation.RIGHT);
+        verifyWorld(start, expectedKaraRow, expectedKaraColumn, Orientation.RIGHT, expected, 0, 0, Orientation.RIGHT);
     }
 
     /**

@@ -343,7 +343,7 @@ public class JunitKaraRunner extends KaraRunner {
     }
 
     /**
-     * The valid elements in Kara's world. [T]ree, [L]eaf, [M]ushroom, Lead [A]nd Mushroom, and N[O]thing.
+     * The valid elements in Kara's world. [T]ree, [L]eaf, [M]ushroom, Leaf [A]nd Mushroom, and N[O]thing.
      */
     private enum Element {
         T, L, M, O, A;

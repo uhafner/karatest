@@ -19,7 +19,7 @@ public abstract class AbstractKaraTest {
 
     /**
      * Runs the program. The program must be defined in a method called 'myProgram'. The method is called using
-     * reflection so implementors do not need to add an override annotation at their implementation.
+     * reflection so implementers do not need to add an override annotation at their implementation.
      *
      * @param karaRunner
      *            the runner with the initial world to run the program with
@@ -32,7 +32,7 @@ public abstract class AbstractKaraTest {
 
     /**
      * Runs the program. The program must be defined in a method called 'myProgram'. The method is called using
-     * reflection so implementors do not need to add an override annotation at their implementation.
+     * reflection so implementers do not need to add an override annotation at their implementation.
      *
      * @param karaRunner
      *            the runner with the initial world to run the program with
@@ -49,7 +49,7 @@ public abstract class AbstractKaraTest {
         Method run;
         try {
             run = program.getClass().getDeclaredMethod("act", new Class[0]);
-            run.invoke(program, new Object[0]);
+            run.invoke(program);
         }
         catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
                 | InvocationTargetException exception) {

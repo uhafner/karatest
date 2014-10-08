@@ -285,10 +285,9 @@ public class JunitKaraRunner extends KaraRunner {
         content.append(NEWLINE);
         content.append(showKara());
         content.append(NEWLINE);
-        for (int row = 0; row < world.length; row++) {
-            Element[] currentRow = world[row];
-            for (int column = 0; column < currentRow.length; column++) {
-                content.append(currentRow[column]);
+        for (Element[] currentRow : world) {
+            for (Element element : currentRow) {
+                content.append(element);
             }
             content.append(NEWLINE);
         }
@@ -336,17 +335,14 @@ public class JunitKaraRunner extends KaraRunner {
         if (karaRow != other.karaRow) {
             return false;
         }
-        if (!Arrays.deepEquals(world, other.world)) {
-            return false;
-        }
-        return true;
+        return Arrays.deepEquals(world, other.world);
     }
 
     /**
      * The valid elements in Kara's world. [T]ree, [L]eaf, [M]ushroom, Leaf [A]nd Mushroom, and N[O]thing.
      */
     private enum Element {
-        T, L, M, O, A;
+        T, L, M, O, A
     }
 
 }

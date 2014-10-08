@@ -108,18 +108,7 @@
           <target>${java.version}</target>
           <testSource>${java.version}</testSource>
           <testTarget>${java.version}</testTarget>
-          <compilerArguments>
-            <properties>.settings/org.eclipse.jdt.core.prefs</properties>
-            <enableJavadoc />
-          </compilerArguments>
         </configuration>
-        <dependencies>
-          <dependency>
-            <groupId>org.codehaus.plexus</groupId>
-            <artifactId>plexus-compiler-eclipse</artifactId>
-            <version>${jdt.plexus.compiler.version}</version>
-          </dependency>
-        </dependencies>
       </plugin>
     </plugins>
 

@@ -1,2 +1,5 @@
+assignments
 target
 .DS_Store
+*.class
+*.ctxt

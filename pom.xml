@@ -10,10 +10,9 @@
 
   <packaging>jar</packaging>
 
-  <name>Eclipse project that tests JavaKara programs</name>
-  <description>Provides a framework to compile and test JavaKara programs.
+  <name>Java project that tests GreenfootKara programs</name>
+  <description>Provides a framework to compile and test GreenfootKara programs.
   It also integrates Maven and several static analysis tools.
-
   </description>
 
   <scm>

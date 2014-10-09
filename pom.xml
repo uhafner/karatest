@@ -51,16 +51,16 @@
     <mockito.version>1.9.5</mockito.version>
 
     <!-- Maven Plug-ins Configuration -->
+    <site.maven.plugin>3.4</site.maven.plugin>
     <compiler.maven.plugin>3.1</compiler.maven.plugin>
-    <jdt.plexus.compiler.version>2.2</jdt.plexus.compiler.version>
-    <resources.maven.plugin>2.6</resources.maven.plugin>
-    <surefire.maven.plugin>2.16</surefire.maven.plugin>
-    <cobertura.maven.plugin>2.5.2</cobertura.maven.plugin>
-    <checkstyle.maven.plugin>2.10</checkstyle.maven.plugin>
-    <pmd.maven.plugin>3.0.1</pmd.maven.plugin>
-    <findbugs.maven.plugin>2.5.2</findbugs.maven.plugin>
+    <resources.maven.plugin>2.7</resources.maven.plugin>
+    <surefire.maven.plugin>2.17</surefire.maven.plugin>
+    <pmd.maven.plugin>3.2</pmd.maven.plugin>
+    <checkstyle.maven.plugin>2.13</checkstyle.maven.plugin>
+    <findbugs.maven.plugin>3.0.0</findbugs.maven.plugin>
+    <cobertura.maven.plugin>2.6</cobertura.maven.plugin>
     <projectinfo.maven.plugin>2.7</projectinfo.maven.plugin>
-    <jxr.maven.plugin>2.3</jxr.maven.plugin>
+    <jxr.maven.plugin>2.4</jxr.maven.plugin>
   </properties>
 
   <dependencies>
@@ -115,6 +115,11 @@
       <plugins>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>${site.maven.plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>${surefire.maven.plugin}</version>
           <configuration>
@@ -146,7 +151,7 @@
           <version>${checkstyle.maven.plugin}</version>
           <configuration>
             <configLocation>etc/checkstyle-configuration.xml</configLocation>
-            <suppressionsLocation>checkstyle-suppressions.xml</suppressionsLocation>
+            <suppressionsLocation>etc/checkstyle-suppressions.xml</suppressionsLocation>
             <propertyExpansion>config_loc=${project.build.outputDirectory}</propertyExpansion>
           </configuration>
         </plugin>
@@ -218,7 +223,7 @@
           <version>${checkstyle.maven.plugin}</version>
           <configuration>
             <configLocation>etc/checkstyle-configuration.xml</configLocation>
-            <suppressionsLocation>checkstyle-suppressions.xml</suppressionsLocation>
+            <suppressionsLocation>etc/checkstyle-suppressions.xml</suppressionsLocation>
             <propertyExpansion>config_loc=${project.build.outputDirectory}</propertyExpansion>
           </configuration>
         </plugin>

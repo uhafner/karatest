@@ -17,13 +17,16 @@ Das Projekt lässt sich damit automatisiert mit folgendem Maven Kommando bauen
 ```
 
 Die statische Codeanalyse wird über folgendes Kommando gestartet: 
+
 ```
   mvn clean install checkstyle:checkstyle pmd:pmd pmd:cpd findbugs:findbugs cobertura:cobertura
 ```
 
 Alternativ lässt sich auch ein HTML Report erstellen, dazu ist das folgende Kommando 
 auszuführen: 
+
 ```
   mvn clean site
 ```
+
 Der [generierte Report](target/site/index.html) lässt sich dann im Browser analysieren. 

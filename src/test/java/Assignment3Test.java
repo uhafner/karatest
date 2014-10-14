@@ -13,14 +13,14 @@ public class Assignment3Test extends AbstractTimeoutKaraTest {
     public void shouldDrawCheckerBoard() {
         verifyWorld(8, 8,
                 new String[] {
-                        "LOLOLOLO",
-                        "OLOLOLOL",
-                        "LOLOLOLO",
-                        "OLOLOLOL",
-                        "LOLOLOLO",
-                        "OLOLOLOL",
-                        "LOLOLOLO",
-                        "OLOLOLOL",
+                        ". . . . ",
+                        " . . . .",
+                        ". . . . ",
+                        " . . . .",
+                        ". . . . ",
+                        " . . . .",
+                        ". . . . ",
+                        " . . . .",
                  });
     }
 

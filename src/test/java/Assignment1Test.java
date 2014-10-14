@@ -16,15 +16,15 @@ public class Assignment1Test extends AbstractTimeoutKaraTest {
 
     protected String[] createExpectedWorld() {
         return new String[] {
-                "OOOOOOOO",
-                "OLOLLLOO",
-                "OLOLOOLO",
-                "OLOLOOLO",
-                "OLOLLLOO",
-                "OLOLOOLO",
-                "OLOLOOLO",
-                "OLOLLLOO",
-                "OOOOOOOO",
+                "        ",
+                " . ...  ",
+                " . .  . ",
+                " . .  . ",
+                " . ...  ",
+                " . .  . ",
+                " . .  . ",
+                " . ...  ",
+                "        ",
         };
     }
 

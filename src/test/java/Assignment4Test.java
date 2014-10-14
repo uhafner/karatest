@@ -1,7 +1,7 @@
 import org.junit.Test;
 
 /**
- * Verifies that the solution for homework assignment 2 works as expected.
+ * Verifies that the solution for homework assignment 4 works as expected.
  *
  * @author Ullrich Hafner
  */
@@ -20,15 +20,15 @@ public class Assignment4Test extends Assignment1Test {
     @Test
     public void shouldToggleInvertedWorld() {
         verifyWorld(new String[]{
-                "LLLLLLLL",
-                "LOLOOOLL",
-                "LOLOLLOL",
-                "LOLOLLOL",
-                "LOLOOOLL",
-                "LOLOLLOL",
-                "LOLOLLOL",
-                "LOLOOOLL",
-                "LLLLLLLL",
+                "........",
+                ". .   ..",
+                ". . .. .",
+                ". . .. .",
+                ". .   ..",
+                ". . .. .",
+                ". . .. .",
+                ". .   ..",
+                "........",
         }, createExpectedWorld());
     }
 
@@ -38,15 +38,15 @@ public class Assignment4Test extends Assignment1Test {
     @Test
     public void shouldDrawIBIntoFilledWorld() {
         verifyWorld(new String[]{
-                "LLLLLLLL",
-                "LLLLLLLL",
-                "LLLLLLLL",
-                "LLLLLLLL",
-                "LLLLLLLL",
-                "LLLLLLLL",
-                "LLLLLLLL",
-                "LLLLLLLL",
-                "LLLLLLLL",
+                "........",
+                "........",
+                "........",
+                "........",
+                "........",
+                "........",
+                "........",
+                "........",
+                "........",
         }, createExpectedWorld());
     }
 

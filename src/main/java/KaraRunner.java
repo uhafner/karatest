@@ -1,7 +1,7 @@
 /**
  * Null object pattern: this runner does nothing.
  *
- * @author Ulli Hafner
+ * @author Ullrich Hafner
  */
 public class KaraRunner implements KaraOperations {
     @Override

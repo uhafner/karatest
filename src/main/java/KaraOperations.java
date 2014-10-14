@@ -1,7 +1,7 @@
 /**
  * All operations of Kara the ladybug.
  *
- * @author Ulli Hafner
+ * @author Ullrich Hafner
  */
 public interface KaraOperations {
     /**

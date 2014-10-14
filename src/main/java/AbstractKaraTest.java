@@ -7,7 +7,7 @@ import static org.mockito.Mockito.*;
 /**
  * Base class for Kara tests.
  *
- * @author Ulli Hafner
+ * @author Ullrich Hafner
  */
 public abstract class AbstractKaraTest {
     /**

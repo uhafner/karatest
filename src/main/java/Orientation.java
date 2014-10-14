@@ -1,5 +1,7 @@
 /**
- * The orientation of
+ * The orientation of Kara.
+ *
+ * @author Ullrich Hafner
  */
 public enum Orientation {
     /** Kara is looking to the left. */

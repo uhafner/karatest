@@ -1,5 +1,5 @@
 /**
- * Offset.
+ * Offset when moving Kara.
  *
  * @author Ullrich Hafner
  */

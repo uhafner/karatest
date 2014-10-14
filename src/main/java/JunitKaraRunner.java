@@ -3,7 +3,7 @@ import java.util.Arrays;
 /**
  * JUnit driver to run Kara through a given world.
  *
- * @author Ulli Hafner
+ * @author Ullrich Hafner
  */
 public class JunitKaraRunner extends KaraRunner {
     private static final String NEWLINE = "\n";
@@ -132,7 +132,7 @@ public class JunitKaraRunner extends KaraRunner {
             String currentRow = content[row];
             Ensure.that(currentRow.length() == width).isTrue("Each row must have the same width");
             for (int column = 0; column < width; column++) {
-                world[row][column] = Element.valueOf(String.valueOf(currentRow.charAt(column)));
+                world[row][column] = Element.valueOf(currentRow.charAt(column));
             }
         }
     }
@@ -342,7 +342,37 @@ public class JunitKaraRunner extends KaraRunner {
      * The valid elements in Kara's world. [T]ree, [L]eaf, [M]ushroom, Leaf [A]nd Mushroom, and N[O]thing.
      */
     private enum Element {
-        T, L, M, O, A
-    }
+        T("#"), L("."), M("$"), O(" "), A("*");
+        private final String symbol;
 
+        private Element(final String symbol) {
+            this.symbol = symbol;
+        }
+
+        public static Element valueOf(final char value) {
+            switch (value) {
+                case 'T':
+                case '#':
+                    return T;
+                case 'L':
+                case '.':
+                    return L;
+                case 'M':
+                case '$':
+                    return M;
+                case 'O':
+                case ' ':
+                    return O;
+                case 'A':
+                case '*':
+                    return A;
+            }
+            throw new IllegalArgumentException(String.format("Can't convert character %c to world element.", value));
+        }
+
+        @Override
+        public String toString() {
+            return symbol;
+        }
+    }
 }

@@ -4,7 +4,7 @@ import org.junit.rules.Timeout;
 /**
  * Base class for Kara tests that fail if a timeout of 10 seconds is exceeded.
  *
- * @author Ulli Hafner
+ * @author Ullrich Hafner
  */
 public abstract class AbstractTimeoutKaraTest extends AbstractKaraTest { // NOPMD
     /** Fails a test if the source code contains an infinite loop. */

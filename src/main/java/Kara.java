@@ -1,7 +1,7 @@
 /**
  * Stub for Kara the ladybug.
  *
- * @author Ulli Hafner
+ * @author Ullrich Hafner
  */
 public class Kara implements KaraOperations {
     Tools tools = new Tools();

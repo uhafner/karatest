@@ -78,6 +78,11 @@ public class Kara implements KaraOperations {
         return karaRunner.mushroomFront();
     }
 
+    @Override
+    public void stop() {
+        // do nothing
+    }
+
     public void setTools(final Tools tools) {
         this.tools = tools;
     }

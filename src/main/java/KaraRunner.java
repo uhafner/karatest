@@ -53,4 +53,9 @@ public class KaraRunner implements KaraOperations {
     public boolean mushroomFront() {
         return false;
     }
+
+    @Override
+    public void stop() {
+        // do nothing
+    }
 }

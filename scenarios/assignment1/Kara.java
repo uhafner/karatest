@@ -63,7 +63,7 @@ public class Kara extends Actor {
 
 	/**
 	 * Kara turns left by 90 degrees <br>
-	 * <i>Kara dreht sich um 90° nach links</i>
+	 * <i>Kara dreht sich um 90 Grad nach links</i>
 	 */
 	public void turnLeft() {
 		turn(-90);
@@ -72,7 +72,7 @@ public class Kara extends Actor {
 
 	/**
 	 * Kara turns right by 90 degrees <br>
-	 * <i>Kara dreht sich um 90° nach rechts</i>
+	 * <i>Kara dreht sich um 90 Grad nach rechts</i>
 	 */
 	public void turnRight() {
 		turn(90);

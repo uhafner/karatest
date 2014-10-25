@@ -4,7 +4,7 @@ Analyse von GreenfootKara Programmen
 GreenfootKara lässt sich nur über die Entwicklungsumgebung Greenfoot bedienen. Um die eigenen 
 Programme dennoch automatisiert testen zu können, wurde das Projekt **KaraTest** geschaffen. 
 Mit Hilfe dieses Projekts lassen sich Unit Tests vorgeben, die bestehende GreenfootKara
-Programme validieren. Zusaätzlich wurden auch die wichtigsten statischen Codeanalyse Tools 
+Programme validieren. Zusätzlich wurden auch die wichtigsten statischen Codeanalyse Tools 
 konfiguriert, so dass auch die Code-Qualität automatisiert ausgewertet werden kann.
 
 Benötigt werden [JDK 8](http://www.java.com) und [Maven](http://maven.apache.org/).

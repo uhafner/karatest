@@ -203,6 +203,11 @@
               <format>html</format>
               <format>xml</format>
             </formats>
+            <instrumentation>
+              <includes>
+                <include>**/Assignment*.class</include>
+              </includes>
+            </instrumentation>
           </configuration>
         </plugin>
         <plugin>
@@ -280,6 +285,11 @@
             <format>html</format>
             <format>xml</format>
           </formats>
+          <instrumentation>
+            <includes>
+              <include>**/Assignment*.class</include>
+            </includes>
+          </instrumentation>
         </configuration>
       </plugin>
       <plugin>

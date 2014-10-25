@@ -216,10 +216,11 @@
             <rulesets>
               <ruleset>etc/pmd-configuration.xml</ruleset>
             </rulesets>
+            <skipEmptyReport>false</skipEmptyReport>
+            <excludeRoots>
+              <excludeRoot>src/main/java</excludeRoot>
+            </excludeRoots>
             <targetJdk>${java.version}</targetJdk>
-            <excludes>
-              <exclude>**/javakara/*.java</exclude>
-            </excludes>
           </configuration>
         </plugin>
         <plugin>

@@ -172,7 +172,6 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>${surefire.maven.plugin}</version>
           <configuration>
-            <argLine>-XX:-UseSplitVerifier</argLine>
             <excludes>
               <exclude>JunitKaraRunnerTest.java</exclude>
             </excludes>

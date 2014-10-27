@@ -47,7 +47,7 @@ Die angegebenen Befehle sind letztlich nur kleine Wrapper-Scripts, die die folge
 
 ### Kopie der Aufgaben im Ordner assignments
 
-Damit nur die tatsächlichen Aufgaben validiert werden, werden diese bei jedem Maven aufruf zunächst aus dem
+Damit nur die tatsächlichen Aufgaben validiert werden, werden diese bei jedem Maven Aufruf zunächst aus dem
 `scenerios` Ordner in den `assignments` Ordner kopiert. D.h. im `assignments` sind nur die jeweiligen Aufgaben ohne die
 übergeordneten Kara Klassen zu finden. 
 

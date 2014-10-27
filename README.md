@@ -19,7 +19,7 @@ abgelegt und bearbeitet werden.
 ## Ausführen der Test 
 
 Für jedes Szenario sind Testfälle vorgegeben, die sich in den Dateien Assignment1Test.java, Assignment2Test.java, etc.
-befinden. Die Testfälle liegen im Ordner [Formatierung](../master/src/test/java). 
+befinden. Die Testfälle liegen im Ordner [src/test/java](../master/src/test/java). 
  
 Ein Szenario lässt sich dann automatisiert testen, indem in der Eingabeaufforderung der Befehl `test` ausgeführt wird.
 
@@ -44,3 +44,12 @@ Die angegebenen Befehle sind letztlich nur kleine Wrapper-Scripts, die die folge
 ```
   mvn clean test -Dmaven.test.failure.ignore=true site
 ```
+
+### Kopie der Aufgaben im Ordner assignments
+
+Damit nur die tatsächlichen Aufgaben validiert werden, werden diese bei jedem Maven aufruf zunächst aus dem
+`scenerios` Ordner in den `assignments` Ordner kopiert. D.h. im `assignments` sind nur die jeweiligen Aufgaben ohne die
+übergeordneten Kara Klassen zu finden. 
+
+**Achtung**: die Dateien im `scenerios` werden automatisch durch Greenfoot aktualisiert, d.h. die Dateien im 
+`assignments` Ordner können veraltet sein!

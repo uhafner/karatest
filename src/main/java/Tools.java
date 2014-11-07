@@ -8,7 +8,7 @@ public class Tools {
         return 0;
     }
 
-    public void showMessage(final String format) {
+    public void showMessage(final String format, final Object... arguments) {
 
     }
 }

@@ -23,33 +23,21 @@ public abstract class AbstractKaraTest {
      *
      * @param karaRunner
      *            the runner with the initial world to run the program with
+     * @return the tools instance to check for message outputs
      * @throws IllegalArgumentException
      *             if the program method could not be started
      */
-    protected void runProgram(final JunitKaraRunner karaRunner) {
-        runProgram(karaRunner, mock(Tools.class));
-    }
-
-    /**
-     * Runs the program. The program must be defined in a method called 'myProgram'. The method is called using
-     * reflection so implementers do not need to add an override annotation at their implementation.
-     *
-     * @param karaRunner
-     *            the runner with the initial world to run the program with
-     * @param tools
-     *            the tools stub or mock to run the program with
-     * @throws IllegalArgumentException
-     *             if the program method could not be started
-     */
-    protected void runProgram(final JunitKaraRunner karaRunner, final Tools tools) {
+    protected Tools runProgram(final JunitKaraRunner karaRunner) {
         Kara program = createProgram();
         program.setRunner(karaRunner);
+        Tools tools = mock(Tools.class);
         program.setTools(tools);
 
         Method run;
         try {
             run = program.getClass().getDeclaredMethod("act", new Class[0]);
             run.invoke(program);
+            return tools;
         }
         catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
                 | InvocationTargetException exception) {

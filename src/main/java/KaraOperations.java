@@ -74,4 +74,12 @@ public interface KaraOperations {
      * Not supported yet. Greenfoot programs could be stopped using this method.
      */
     void stop();
+
+    /**
+     * Shows the specified message in a popup window.
+     *
+     * @param format    a <a href="../util/Formatter.html#syntax">format string</a>
+     * @param arguments arguments referenced by the format specifiers in the format string
+     */
+    void showMessage(String format, Object... arguments);
 }

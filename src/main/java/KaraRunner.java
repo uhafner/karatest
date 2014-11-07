@@ -58,4 +58,9 @@ public class KaraRunner implements KaraOperations {
     public void stop() {
         // do nothing
     }
+
+    @Override
+    public void showMessage(final String format, final Object... arguments) {
+        // do nothing
+    }
 }

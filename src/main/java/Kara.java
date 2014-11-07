@@ -4,8 +4,8 @@
  * @author Ullrich Hafner
  */
 public class Kara implements KaraOperations {
-    Tools tools = new Tools();
     private KaraRunner karaRunner;
+    private Tools tools;
 
     /**
      * Creates a new instance of {@link Kara}.
@@ -83,12 +83,12 @@ public class Kara implements KaraOperations {
         // do nothing
     }
 
-    public void setTools(final Tools tools) {
+    @Override
+    public void showMessage(final String format, final Object... arguments) {
+        tools.showMessage(format, arguments);
+    }
+
+    void setTools(final Tools tools) {
         this.tools = tools;
     }
-
-    public Tools getTools() {
-        return tools;
-    }
-
 }

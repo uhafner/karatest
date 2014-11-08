@@ -25,7 +25,7 @@ Ein Szenario lässt sich dann automatisiert testen, indem in der Eingabeaufforde
 
 ## Überprüfung der Kodierungsrichtlinien 
 
-Die Kodierungsrichtlinien sind ebenso hinterlegt und können mit dem Kommando `site` überprüft werden. 
+Die Kodierungsrichtlinien sind ebenso hinterlegt und können mit dem Kommando `analyze` überprüft werden.
 Der [generierte Report](target/site/index.html) lässt sich dann im Browser analysieren. 
 
 ## Technische Details

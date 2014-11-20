@@ -259,7 +259,12 @@
     </properties>
   </rule>
    <rule ref="rulesets/java/codesize.xml/ExcessivePublicCount"/>
-   <rule ref="rulesets/java/codesize.xml/TooManyFields"/>
+   <rule ref="rulesets/java/codesize.xml/TooManyFields">
+      <properties>
+         <property name="maxfields" value="0"/>
+      </properties>
+      <priority>1</priority>
+  </rule>
    <rule ref="rulesets/java/codesize.xml/NcssMethodCount"/>
    <rule ref="rulesets/java/codesize.xml/NcssTypeCount"/>
    <rule ref="rulesets/java/codesize.xml/NcssConstructorCount"/>

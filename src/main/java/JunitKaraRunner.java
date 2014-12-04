@@ -339,6 +339,21 @@ public class JunitKaraRunner extends KaraRunner {
     }
 
     /**
+     * Returns the leaves of the world.
+     *
+     * @return a two-dimensional array showing the leaves of the world
+     */
+    public boolean[][] getLeaves() {
+        boolean[][] containsLeaf = new boolean[height][width];
+        for (int y = 0; y < world.length; y++) {
+            for (int x = 0; x < world[y].length; x++) {
+                containsLeaf[y][x] = world[y][x] == Element.L;
+            }
+        }
+        return containsLeaf;
+    }
+
+    /**
      * The valid elements in Kara's world. [T]ree, [L]eaf, [M]ushroom, Leaf [A]nd Mushroom, and N[O]thing.
      */
     private enum Element {

@@ -33,7 +33,7 @@ Der [generierte Report](target/site/index.html) lässt sich dann im Browser anal
 Die oben aufgeführte Automatisierung basiert auf dem Build Management Tool [Maven](http://maven.apache.org/). 
 Die angegebenen Befehle sind letztlich nur kleine Wrapper-Scripts, die die folgenden Maven Befehle aufrufen.
 
-### Übersetzen der Quellen und Start der Tests:
+### Übersetzen der Quellen und Start der Tests
 
 ```
   mvn clean test

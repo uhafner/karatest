@@ -1,0 +1,35 @@
+World: Assignment 8a
+X: 3
+Y: 3
+;Kara: @
+;Tree: #
+;Leaf: .
+;Mushroom: $
+;Mushroom on Leaf: *
+;Kara on Leaf: +
+;Empty Field: Space
+@
+
+World: Assignment 8b
+X: 5
+Y: 5
+;Kara: @
+;Tree: #
+;Leaf: .
+;Mushroom: $
+;Mushroom on Leaf: *
+;Kara on Leaf: +
+;Empty Field: Space
+@
+
+World: Assignment 8c
+X: 25
+Y: 25
+;Kara: @
+;Tree: #
+;Leaf: .
+;Mushroom: $
+;Mushroom on Leaf: *
+;Kara on Leaf: +
+;Empty Field: Space
+@

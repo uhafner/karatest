@@ -82,7 +82,6 @@
         </module>
         <module name="IllegalThrows"/>
         <module name="InnerAssignment"/>
-        <module name="JUnitTestCase"/>
         <module name="MissingSwitchDefault"/>
         <module name="ModifiedControlVariable"/>
         <module name="MultipleStringLiterals">

@@ -10,8 +10,9 @@ Greenfoot is **not** required to start and evaluate these tests: all dependencie
 that is intercepting the calls to Greenfoot.
 
 Additionally, static code analysis has been configured so that the code could be checked for common bug patterns 
-(FindBugs), for coding style violations (CheckStyle) and conformance to best practices (PMD). The configuration of these 
-tools is derived from [my Java coding style](https://github.com/uhafner/codingstyle).
+(FindBugs), for coding style violations (CheckStyle), and for conformance to best practices (PMD). 
+The configuration of these tools is derived from [my Java coding style](https://github.com/uhafner/codingstyle) 
+(currently available in German only).
 
 This project has been used in my lecture *Software development with Java* to automatically evaluate the solutions of 
 weekly assignments. Because of this I applied several naming conventions to simplify the processing. These naming 
@@ -33,13 +34,14 @@ like in order to prepare the installation.
 The tests of a scenario use the typical [JUnit](http://junit.org/) naming conventions and are named 
 Assignment1Test.java, Assignment2Test.java, etc. For each assignment multiple tests could be specified
 using a `public void` method with an `@Test` annotation. In order to get these tests automatically evaluated, they 
-must follow the Maven conventions and must be copied to the folder [src/test/java](../master/src/test/java). No 
-package is needed for these tests. The tests are not part of a scenario folder.
+must follow the Maven conventions and must be copied to the folder [src/test/java](../master/src/test/java). Tests 
+(as well as the actual assignments) are located in the default package. The tests are not part of a scenario folder.
  
 ## Example scenario
  
-This project already contains an example: [assignment0](../master/scenarios/assignment0). Here you basically see how to 
-structure the scenarios and unit tests in [Assignment0Test](../master/src/test/java/Assignment0Test.java). 
+An example is available that shows the basic concepts of this project: [assignment0](../master/scenarios/assignment0). 
+Here you can see how to structure the scenarios and unit tests in 
+[Assignment0Test](../master/src/test/java/Assignment0Test.java). 
 In this assignment, a world containing a diamond needs to be created. The provided unit test checks the program
 by inspecting the created world after the program. (All examples start with an empty world. Have a look at the various
 verifyWorld methods in [AbstractKaraTest](../master/src/main/java/AbstractKaraTest.java) to see on how to start with 

@@ -22,8 +22,8 @@ This project requires installation of [JDK 8](http://www.java.com) und [Maven 3.
 ## Configuring the scenarios
 
 **KaraTest** basically uses the same input files as Greenfoot, i.e. it is based on scenarios. Rather then always using 
-the class `MyKara` to develop the solution for a scenario the classes `Assignment1`, `Assignment2`, etc. are used.  
-In order to test a scenario you need a corresponding GreenfootKara scenario with such an assignment class. These 
+the class `MyKara` to develop the solution for a scenario the classes `Assignment1`, `Assignment2`, etc. are used.  In 
+order to test a scenario you need a corresponding GreenfootKara scenario with such an assignment class. These 
 scenarios must be located in the folder `scenarios`. They follow the naming convention assignment1, assignment2, etc.
 Scenarios are independent of each other, i.e. you can copy these folders to or from any place you
 like in order to prepare the installation.
@@ -38,8 +38,9 @@ package is needed for these tests. The tests are not part of a scenario folder.
  
 ## Example scenario
  
-This project already contains an example: assignment0. Here you basically see how to structure the scenarios and unit
-tests. In this assignment, a world containing a diamond needs to be created. The provided unit test checks the program
+This project already contains an example: [assignment0](../master/scenarios/assignment0). Here you basically see how to 
+structure the scenarios and unit tests in [Assignment0Test](../master/src/test/java/Assignment0Test.java). 
+In this assignment, a world containing a diamond needs to be created. The provided unit test checks the program
 by inspecting the created world after the program. Note that the unit tests will fail after a given timeout has been
 exceeded. So the evaluation will not hang due to broken solutions. 
  

@@ -64,8 +64,7 @@ You can generate various project reports in a terminal using the following comma
 
 The [generated reports](target/site/index.html) are visible in the browser afterwards. 
 
-
-### Technical details
+## Technical details
 
 In order to validate only the classes of the actual assignments, the files Assignment1.java, 
 Assignment2.java, etc. are copied from the folder `scenarios` to the folder `assignments` during the execution of Maven. 
@@ -73,3 +72,7 @@ I.e. in folder `assignments` only the actual assignment classes are visible, the
 
 **Note**: If you open in Greenfoot a scenario in the folder `scenarios` then the containing files are automatically 
 updated by Greenfoot, i.e. these files might be not in sync anymore with the files in folder im `assignments`!
+
+## License
+
+All source code is under [MIT license](http://opensource.org/licenses/MIT).

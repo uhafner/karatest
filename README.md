@@ -40,7 +40,7 @@ must follow the Maven conventions and must be copied to the folder [src/test/jav
 ## Example scenario
  
 An example is available that shows the basic concepts of this project: [assignment0](../master/scenarios/assignment0). 
-Here you can see how to structure the scenarios and unit tests in 
+Here you can see how to structure the scenarios. A unit test is available as well:
 [Assignment0Test](../master/src/test/java/Assignment0Test.java). 
 In this assignment, a world containing a diamond needs to be created. The provided unit test checks the program
 by inspecting the created world after the program. (All examples start with an empty world. Have a look at the various

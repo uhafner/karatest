@@ -41,8 +41,10 @@ package is needed for these tests. The tests are not part of a scenario folder.
 This project already contains an example: [assignment0](../master/scenarios/assignment0). Here you basically see how to 
 structure the scenarios and unit tests in [Assignment0Test](../master/src/test/java/Assignment0Test.java). 
 In this assignment, a world containing a diamond needs to be created. The provided unit test checks the program
-by inspecting the created world after the program. Note that the unit tests will fail after a given timeout has been
-exceeded. So the evaluation will not hang due to broken solutions. 
+by inspecting the created world after the program. (All examples start with an empty world. Have a look at the various
+verifyWorld methods in [AbstractKaraTest](../master/src/main/java/AbstractKaraTest.java) to see on how to start with 
+an existing world). Note that the unit tests will fail after a given timeout has been exceeded. So the evaluation will 
+not hang due to broken solutions. 
  
 ## Running the tests 
 

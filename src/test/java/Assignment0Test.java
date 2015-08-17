@@ -1,7 +1,7 @@
 import org.junit.Test;
 
 /**
- * Verifies that the solution for assignment 8 works as expected. I.e., the program
+ * Verifies that the solution for the example assignment works as expected. I.e., the program
  * draws diamonds in different worlds.
  *
  * @author Ullrich Hafner

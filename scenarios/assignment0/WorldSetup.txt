@@ -1,4 +1,4 @@
-World: Assignment 8a
+World: Assignment 0 - Create a diamond in a 3x3 world
 X: 3
 Y: 3
 ;Kara: @
@@ -10,7 +10,7 @@ Y: 3
 ;Empty Field: Space
 @
 
-World: Assignment 8b
+World: Assignment 0 - Create a diamond in a 5x5 world
 X: 5
 Y: 5
 ;Kara: @
@@ -22,7 +22,7 @@ Y: 5
 ;Empty Field: Space
 @
 
-World: Assignment 8c
+World: Assignment 0 - Create a diamond in a 25x25 world
 X: 25
 Y: 25
 ;Kara: @

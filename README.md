@@ -6,15 +6,16 @@ development environment [Greenfoot](www.greenfoot.org/) with manual interaction.
 for GreenfootKara programs. Using this extension, you can create simple [JUnit](http://junit.org/) tests to validate
 existing GreenfootKara programs. You can start these unit tests either in an arbitrary development environment 
 (e.g., IntelliJ, Eclipse, ...) or in a terminal using the build management tool [Maven](http://maven.apache.org/). 
-Greenfoot is **not** required to start and evaluate these tests: all dependencies to Greenfoot are replaced with a mock 
-that is intercepting the calls to Greenfoot.
+All you need is to deploy your scenarios and tests into the proposed folders of this project. 
+Greenfoot is **not** required to start and evaluate these tests: all dependencies to Greenfoot are replaced with a 
+mock that is intercepting the calls to Greenfoot.
 
 Additionally, static code analysis has been configured so that the code could be checked for common bug patterns 
 (FindBugs), for coding style violations (CheckStyle), and for conformance to best practices (PMD). 
 The configuration of these tools is derived from [my Java coding style](https://github.com/uhafner/codingstyle) 
 (currently available in German only).
 
-This project has been used in my lecture *Software development with Java* to automatically evaluate the solutions of 
+This project has been used in my lecture **Software development with Java** to automatically evaluate the solutions of 
 weekly assignments. Because of this I applied several naming conventions to simplify the processing. These naming 
 conventions are not required to use **KaraTest** as a library, so feel free to change these values if required.
 
@@ -64,16 +65,17 @@ You can generate various project reports in a terminal using the following comma
   mvn clean test -Dmaven.test.failure.ignore=true site
 ```
 
-The [generated reports](target/site/index.html) are visible in the browser afterwards. 
+You can visit the generated reports in the browser afterwards: just navigate to the index file in the output folder 
+`target/site/index.html`. 
 
-## Technical details
+## Note
 
-In order to validate only the classes of the actual assignments, the files Assignment1.java, 
-Assignment2.java, etc. are copied from the folder `scenarios` to the folder `assignments` during the execution of Maven. 
-I.e. in folder `assignments` only the actual assignment classes are visible, the dependencies are not available here. 
-
-**Note**: If you open in Greenfoot a scenario in the folder `scenarios` then the containing files are automatically 
-updated by Greenfoot, i.e. these files might be not in sync anymore with the files in folder im `assignments`!
+In order to validate only classes of the actual assignments, the files Assignment1.java, Assignment2.java, etc. 
+are copied from the folder `scenarios` to the folder `assignments` during execution of Maven. 
+I.e. in folder `assignments` only the actual assignment classes are visible, the dependencies are not available here. Do
+not edit these files, since they will be overridden during the next run of Maven. Also, if you open a scenario 
+in the folder `scenarios` with Greenfoot then the containing files are automatically updated by Greenfoot, i.e. these 
+files might be not in sync anymore with the files in folder im `assignments`!
 
 ## License
 

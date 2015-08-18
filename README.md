@@ -77,4 +77,4 @@ updated by Greenfoot, i.e. these files might be not in sync anymore with the fil
 
 ## License
 
-All source code is under [MIT license](http://opensource.org/licenses/MIT).
+All source code is copyrighted by Ullrich Hafner and licensed under the [MIT license](http://opensource.org/licenses/MIT).

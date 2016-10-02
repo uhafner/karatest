@@ -8,7 +8,7 @@ existing GreenfootKara programs. You can start these unit tests either in an arb
 (e.g., IntelliJ, Eclipse, ...) or in a terminal using the build management tool [Maven](http://maven.apache.org/). 
 All you need is to deploy your scenarios and tests into the proposed folders of this project. 
 Greenfoot is **not** required to start and evaluate these tests: all dependencies to Greenfoot are replaced with a 
-mock that is intercepting the calls to Greenfoot.
+mock that is intercepting calls to Greenfoot.
 
 Additionally, static code analysis has been configured so that the code could be checked for common bug patterns 
 (FindBugs), for coding style violations (CheckStyle), and for conformance to best practices (PMD). 
@@ -79,4 +79,6 @@ files might be not in sync anymore with the files in folder im `assignments`!
 
 ## License
 
-All source code is copyrighted by Ullrich Hafner and licensed under the [MIT license](http://opensource.org/licenses/MIT).
+All source code in folder [src](../master/src/) is copyrighted by Ullrich Hafner and licensed under the [MIT license](http://opensource.org/licenses/MIT).
+
+The original source code of GreenfootKara 2.2.1 in the examples scenarios is copyrighted by  [Marco Jakob](http://code.makery.ch).

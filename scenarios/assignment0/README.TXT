@@ -1,13 +1,3 @@
-------------------------------------------------------------------------
--- Kara Rules (ENGLISH) --
-------------------------------------------------------------------------
-
--   Kara always moves in the direction he faces.
--   If Kara moves over a border he shows up on the opposite side again.
--   Kara can't move through trees.
--   Kara can push mushrooms if there is not another mushroom or a tree
-    behind the mushroom to push.
--   Kara can put and remove leafs.
 
 
 

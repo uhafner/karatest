@@ -40,35 +40,35 @@ public interface KaraOperations {
      *
      * @return {@code true} if there is a tree is in front of Kara, {@code false} otherwise
      */
-    boolean treeFront();
+    boolean isTreeFront();
 
     /**
      * Returns whether a tree is left of Kara.
      *
      * @return {@code true} if there is a tree is left of Kara, {@code false} otherwise
      */
-    boolean treeLeft();
+    boolean isTreeLeft();
 
     /**
      * Returns whether a tree is right of Kara.
      *
      * @return {@code true} if there is a tree is right of Kara, {@code false} otherwise
      */
-    boolean treeRight();
+    boolean isTreeRight();
 
     /**
      * Returns Kara is on a leaf.
      *
      * @return {@code true} if Kara is on a leaf, {@code false} otherwise
      */
-    boolean onLeaf();
+    boolean isOnLeaf();
 
     /**
      * Returns whether a mushroom is in front of Kara.
      *
      * @return {@code true} if there is a mushroom is in front of Kara, {@code false} otherwise
      */
-    boolean mushroomFront();
+    boolean isMushroomFront();
 
     /**
      * Not supported yet. Greenfoot programs could be stopped using this method.

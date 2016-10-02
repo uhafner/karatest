@@ -33,7 +33,7 @@ public class Kara extends Actor {
 	 */
 	public void move() {
 		// Check for a tree
-		if (treeFront()) {
+		if (isTreeFront()) {
 			showWarning("Kara can't move because of a tree!",
 					"Kara kann sich nicht bewegen wegen einem Baum!");
 			return;
@@ -88,7 +88,7 @@ public class Kara extends Actor {
 	 * befindet</i>
 	 */
 	public void putLeaf() {
-		if (!onLeaf()) {
+		if (!isOnLeaf()) {
 			Leaf leaf = new Leaf();
 			getWorld().addObject(leaf, getX(), getY());
 			Greenfoot.delay(1);

@@ -18,11 +18,11 @@ public class JunitKaraRunnerTest {
                 for (int column = 0; column < 2; column++) {
                     JunitKaraRunner kara = new JunitKaraRunner(row, column, orientation, 2, 2);
 
-                    assertFalse("Kara is on leaf", kara.onLeaf());
-                    assertFalse("No tree in front", kara.treeFront());
-                    assertFalse("No tree on the left", kara.treeLeft());
-                    assertFalse("No tree on the right", kara.treeRight());
-                    assertFalse("No mushroom in front", kara.mushroomFront());
+                    assertFalse("Kara is on leaf", kara.isOnLeaf());
+                    assertFalse("No tree in front", kara.isTreeFront());
+                    assertFalse("No tree on the left", kara.isTreeLeft());
+                    assertFalse("No tree on the right", kara.isTreeRight());
+                    assertFalse("No mushroom in front", kara.isMushroomFront());
                 }
             }
         }
@@ -37,12 +37,12 @@ public class JunitKaraRunnerTest {
             for (int row = 0; row < 2; row++) {
                 for (int column = 0; column < 2; column++) {
                     JunitKaraRunner kara = new JunitKaraRunner(row, column, orientation, getTreeWorld(row, column));
-                    assertTrue("Kara is not on leaf", kara.onLeaf());
-                    assertTrue("Tree in front", kara.treeFront());
-                    assertTrue("Tree on the left", kara.treeLeft());
-                    assertTrue("Tree on the right", kara.treeRight());
+                    assertTrue("Kara is not on leaf", kara.isOnLeaf());
+                    assertTrue("Tree in front", kara.isTreeFront());
+                    assertTrue("Tree on the left", kara.isTreeLeft());
+                    assertTrue("Tree on the right", kara.isTreeRight());
 
-                    assertFalse("No mushroom in front", kara.mushroomFront());
+                    assertFalse("No mushroom in front", kara.isMushroomFront());
                 }
             }
         }
@@ -65,12 +65,12 @@ public class JunitKaraRunnerTest {
 
     private void verifyMushrooms(final Orientation orientation, final int row, final int column, final String[] world) {
         JunitKaraRunner kara = new JunitKaraRunner(row, column, orientation, world);
-        assertTrue("Kara is not on leaf", kara.onLeaf());
-        assertFalse("Tree in front", kara.treeFront());
-        assertFalse("Tree on the left", kara.treeLeft());
-        assertFalse("Tree on the right", kara.treeRight());
+        assertTrue("Kara is not on leaf", kara.isOnLeaf());
+        assertFalse("Tree in front", kara.isTreeFront());
+        assertFalse("Tree on the left", kara.isTreeLeft());
+        assertFalse("Tree on the right", kara.isTreeRight());
 
-        assertTrue("No mushroom in front", kara.mushroomFront());
+        assertTrue("No mushroom in front", kara.isMushroomFront());
     }
 
     /**
@@ -87,7 +87,7 @@ public class JunitKaraRunnerTest {
         kara.move();
         kara.turnRight();
 
-        assertTrue("There is no mushroom in front of Kara", kara.mushroomFront());
+        assertTrue("There is no mushroom in front of Kara", kara.isMushroomFront());
 
         kara.move();
         assertEquals("Die Welten sind nicht korrekt",
@@ -159,7 +159,7 @@ public class JunitKaraRunnerTest {
                         "OMO",
                         "OOO",
                 });
-        assertTrue("There is no mushroom in front of Kara", kara.mushroomFront());
+        assertTrue("There is no mushroom in front of Kara", kara.isMushroomFront());
 
         kara.move();
         assertEquals("Die Welten sind nicht korrekt",

@@ -202,7 +202,7 @@ public class JunitKaraRunner extends KaraRunner {
 
     @Override
     public void removeLeaf() {
-        if (onLeaf()) {
+        if (isOnLeaf()) {
             kara(Element.O);
         }
         else {
@@ -251,7 +251,7 @@ public class JunitKaraRunner extends KaraRunner {
     }
 
     @Override
-    public boolean onLeaf() {
+    public boolean isOnLeaf() {
         return kara() == Element.L;
     }
 
@@ -260,22 +260,22 @@ public class JunitKaraRunner extends KaraRunner {
     }
 
     @Override
-    public boolean treeFront() {
+    public boolean isTreeFront() {
         return offset(karaOrientation.front()) == Element.T;
     }
 
     @Override
-    public boolean treeLeft() {
+    public boolean isTreeLeft() {
         return offset(karaOrientation.left().front()) == Element.T;
     }
 
     @Override
-    public boolean treeRight() {
+    public boolean isTreeRight() {
         return offset(karaOrientation.right().front()) == Element.T;
     }
 
     @Override
-    public boolean mushroomFront() {
+    public boolean isMushroomFront() {
         return containsMushroom(offset(karaOrientation.front()));
     }
 

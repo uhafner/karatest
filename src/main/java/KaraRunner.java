@@ -30,27 +30,27 @@ public class KaraRunner implements KaraOperations {
     }
 
     @Override
-    public boolean treeFront() {
+    public boolean isTreeFront() {
         return false;
     }
 
     @Override
-    public boolean treeLeft() {
+    public boolean isTreeLeft() {
         return false;
     }
 
     @Override
-    public boolean treeRight() {
+    public boolean isTreeRight() {
         return false;
     }
 
     @Override
-    public boolean onLeaf() {
+    public boolean isOnLeaf() {
         return false;
     }
 
     @Override
-    public boolean mushroomFront() {
+    public boolean isMushroomFront() {
         return false;
     }
 

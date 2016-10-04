@@ -42,7 +42,7 @@ public class Assignment0 extends Kara {
         do {
             move();
             width++;
-        } while (!onLeaf());
+        } while (!isOnLeaf());
         removeLeaf();
 
         return width;

@@ -173,7 +173,7 @@ public abstract class AbstractKaraTest {
         JunitKaraRunner karaRunner = new JunitKaraRunner(startKaraRow, startKaraColumn, startKaraOrientation, start);
         runProgram(karaRunner);
 
-        assertEquals("Die Welten sind nicht korrekt", new JunitKaraRunner(expectedKaraRow, expectedKaraColumn,
+        assertEquals("Die Welten sind nicht korrekt: ", new JunitKaraRunner(expectedKaraRow, expectedKaraColumn,
                 expectedKaraOrientation, expected), karaRunner);
     }
     // CHECKSTYLE:ON
@@ -204,7 +204,7 @@ public abstract class AbstractKaraTest {
         JunitKaraRunner karaRunner = new JunitKaraRunner(startKaraRow, startKaraColumn, startKaraOrientation, start);
         runProgram(karaRunner);
 
-        assertEquals("Kara ist an der falschen Stelle", new JunitKaraRunner(expectedKaraRow, expectedKaraColumn,
+        assertEquals("Kara ist an der falschen Stelle: ", new JunitKaraRunner(expectedKaraRow, expectedKaraColumn,
                 expectedKaraOrientation, karaRunner.getHeight(), karaRunner.getWidth()).showKara(), karaRunner.showKara());
     }
     // CHECKSTYLE:ON}

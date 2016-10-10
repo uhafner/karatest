@@ -1,23 +1,19 @@
 
 
+import javax.swing.JOptionPane;
+import java.util.List;
+
 import greenfoot.Actor;
 import greenfoot.Greenfoot;
 
-import java.lang.Object;
-import java.lang.String;
-import java.lang.System;
-import java.util.List;
-
-import javax.swing.JOptionPane;
-
 /**
  * This is the superclass for all Karas containing the basic Kara methods.
- * Programs should only be written in subclasses (e.g. Assignment0).
+ * Programs should only be written in subclasses (e.g. MyKara).
  * <p>
  * 
  * <i>Diese Klasse ist die Oberklasse fuer alle Karas und enthaelt die
  * Grundfunktionen von Kara. Programme sollten nur in den Unterklassen wie
- * Assignment0 geschrieben werden.</i>
+ * MyKara geschrieben werden.</i>
  * 
  * @author Marco Jakob (http://code.makery.ch)
  */
@@ -119,7 +115,7 @@ public class Kara extends Actor {
 	 * 
 	 * @return true if Kara stands on a leaf, false otherwise
 	 */
-	public boolean onLeaf() {
+	public boolean isOnLeaf() {
 		return getOneObjectAtOffset(0, 0, Leaf.class) != null;
 	}
 
@@ -129,7 +125,7 @@ public class Kara extends Actor {
 	 * 
 	 * @return true if there is a tree in front of Kara, false otherwise
 	 */
-	public boolean treeFront() {
+	public boolean isTreeFront() {
 		return getObjectInFront(getRotation(), 1, Tree.class) != null;
 	}
 
@@ -139,7 +135,7 @@ public class Kara extends Actor {
 	 * 
 	 * @return true if Kara has a tree on his left, false otherwise
 	 */
-	public boolean treeLeft() {
+	public boolean isTreeLeft() {
 		return getObjectInFront(modulo(getRotation() - 90, 360), 1, Tree.class) != null;
 	}
 
@@ -149,7 +145,7 @@ public class Kara extends Actor {
 	 * 
 	 * @return true if Kara has a tree on his right, false otherwise
 	 */
-	public boolean treeRight() {
+	public boolean isTreeRight() {
 		return getObjectInFront(modulo(getRotation() + 90, 360), 1, Tree.class) != null;
 	}
 
@@ -159,7 +155,7 @@ public class Kara extends Actor {
 	 * 
 	 * @return true if a mushroom is in front of a Kara, false otherwise
 	 */
-	public boolean mushroomFront() {
+	public boolean isMushroomFront() {
 		return getObjectInFront(getRotation(), 1, Mushroom.class) != null;
 	}
 	
@@ -311,5 +307,12 @@ public class Kara extends Actor {
 	 */
 	private int modulo(int a, int b) {
 		return (a % b + b) % b;
+	}
+
+	/**
+	 * Not supported in GreenfootKara.
+	 */
+	public void move(final int distance) {
+		throw new UnsupportedOperationException("move with argument not supported in GreenfootKara.");
 	}
 }

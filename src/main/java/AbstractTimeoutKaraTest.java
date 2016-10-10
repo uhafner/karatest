@@ -1,5 +1,9 @@
+import java.util.concurrent.TimeUnit;
+
 import org.junit.Rule;
 import org.junit.rules.Timeout;
+
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 /**
  * Base class for Kara tests that fail if a timeout of 10 seconds is exceeded.
@@ -9,6 +13,6 @@ import org.junit.rules.Timeout;
 public abstract class AbstractTimeoutKaraTest extends AbstractKaraTest { // NOPMD
     /** Fails a test if the source code contains an infinite loop. */
     @Rule
-    @edu.umd.cs.findbugs.annotations.SuppressWarnings("URF")
-    public final Timeout TIME_OUT = new Timeout(10_000); // NOCHECKSTYLE
+    @SuppressFBWarnings("URF")
+    public final Timeout TIME_OUT = new Timeout(10, TimeUnit.SECONDS); // NOCHECKSTYLE
 }

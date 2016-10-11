@@ -1,9 +1,8 @@
 
 
-import greenfoot.Greenfoot;
-import greenfoot.GreenfootImage;
-import greenfoot.World;
-
+import javax.swing.Icon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.io.IOException;
@@ -14,9 +13,9 @@ import java.util.concurrent.FutureTask;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.swing.Icon;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
+import greenfoot.Greenfoot;
+import greenfoot.GreenfootImage;
+import greenfoot.World;
 
 
 /**

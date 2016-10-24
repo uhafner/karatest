@@ -113,7 +113,7 @@
               <goal>copy-resources</goal>
             </goals>
             <configuration>
-              <outputDirectory>${basedir}/assignments</outputDirectory>
+              <outputDirectory>${project.build.directory}/copied-assignments</outputDirectory>
               <resources>
                 <resource>
                   <directory>scenarios</directory>
@@ -141,7 +141,7 @@
             </goals>
             <configuration>
               <sources>
-                <source>assignments</source>
+                <source>${project.build.directory}/copied-assignments</source>
               </sources>
             </configuration>
           </execution>
@@ -206,7 +206,7 @@
           <artifactId>maven-checkstyle-plugin</artifactId>
           <version>${checkstyle.maven.plugin}</version>
           <configuration>
-            <sourceDirectory>assignments</sourceDirectory>
+            <sourceDirectory>${project.build.directory}/copied-assignments</sourceDirectory>
             <configLocation>etc/checkstyle-configuration.xml</configLocation>
           </configuration>
         </plugin>
@@ -256,7 +256,7 @@
         <artifactId>maven-jxr-plugin</artifactId>
         <version>${jxr.maven.plugin}</version>
         <configuration>
-          <sourcePath>assignments</sourcePath>
+          <sourcePath>${project.build.directory}/copied-assignments</sourcePath>
         </configuration>
       </plugin>
       <plugin>
@@ -286,7 +286,7 @@
         <artifactId>maven-checkstyle-plugin</artifactId>
         <version>${checkstyle.maven.plugin}</version>
         <configuration>
-          <sourceDirectory>assignments</sourceDirectory>
+          <sourceDirectory>${project.build.directory}/copied-assignments</sourceDirectory>
           <configLocation>etc/checkstyle-configuration.xml</configLocation>
         </configuration>
       </plugin>

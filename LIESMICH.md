@@ -44,11 +44,11 @@ Die oben aufgeführte Automatisierung basiert auf dem Build Management Tool [Mav
   mvn clean test -Dmaven.test.failure.ignore=true site
 ```
 
-### Kopie der Aufgaben im Ordner assignments
+### Kopie der Aufgaben im Ordner target/copied-assignments
 
 Damit nur die tatsächlichen Aufgaben validiert werden, werden diese bei jedem Maven Aufruf zunächst aus dem
-`scenerios` Ordner in den `assignments` Ordner kopiert. D.h. im `assignments` sind nur die jeweiligen Aufgaben ohne die
-übergeordneten Kara Klassen zu finden. 
+`scenerios` Ordner in den Ordner `target/copied-assignments` kopiert. D.h. im `target/copied-assignments` sind nur die 
+jeweiligen Aufgaben ohne die übergeordneten Kara Klassen zu finden. 
 
 **Achtung**: die Dateien im `scenerios` werden automatisch durch Greenfoot aktualisiert, d.h. die Dateien im 
-`assignments` Ordner können veraltet sein!
+`target/copied-assignments` Ordner können veraltet sein!

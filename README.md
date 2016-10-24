@@ -71,14 +71,17 @@ You can visit the generated reports in the browser afterwards: just navigate to 
 ## Note
 
 In order to validate only classes of the actual assignments, the files Assignment1.java, Assignment2.java, etc. 
-are copied from the folder `scenarios` to the folder `assignments` during execution of Maven. 
-I.e. in folder `assignments` only the actual assignment classes are visible, the dependencies are not available here. Do
-not edit these files, since they will be overridden during the next run of Maven. Also, if you open a scenario 
-in the folder `scenarios` with Greenfoot then the containing files are automatically updated by Greenfoot, i.e. these 
-files might be not in sync anymore with the files in folder im `assignments`!
+are copied from the folder `scenarios` to the folder `target/copied-assignments` during execution of Maven. 
+I.e. in folder `target/copied-assignments` only the actual assignment classes are visible, the dependencies 
+are not available here. Do not edit these files, since they will be overridden during the next run of Maven. 
+Also, if you open a scenario in the folder `scenarios` with Greenfoot then the containing files are automatically 
+updated by Greenfoot, i.e. these files might be not in sync anymore with the files in 
+folder `target/copied-assignments`!
 
 ## License
 
-All source code in folder [src](../master/src/) is copyrighted by Ullrich Hafner and licensed under the [MIT license](http://opensource.org/licenses/MIT).
+All source code in folder [src](../master/src/) is copyrighted by Ullrich Hafner and licensed under the 
+[MIT license](http://opensource.org/licenses/MIT).
 
-The original source code of GreenfootKara 2.2.1 in the examples scenarios is copyrighted by  [Marco Jakob](http://code.makery.ch).
+The original source code of GreenfootKara 2.2.1 in the examples scenarios is copyrighted by 
+[Marco Jakob](http://code.makery.ch).

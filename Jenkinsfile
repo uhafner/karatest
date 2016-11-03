@@ -1,5 +1,5 @@
-node {
-    def mvnHome = tool 'mvn-default'
+sh "ls"
 
-    sh "${mvnHome}/bin/mvn -Dmaven.test.failure.ignore=true clean test site"
-}
+def mvnHome = tool 'mvn-default'
+
+sh "${mvnHome}/bin/mvn -Dmaven.test.failure.ignore=true clean test site"

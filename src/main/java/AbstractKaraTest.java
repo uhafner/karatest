@@ -148,6 +148,33 @@ public abstract class AbstractKaraTest {
     /**
      * Verifies that the program under test creates the expected world and Kara is set to the expected position. The
      * world is initialized with the start values and Kara is put at the specified position.
+     * Kara orientation is #{@link Orientation#RIGHT}.
+     *
+     * @param start
+     *            the start world
+     * @param startKaraRow
+     *            the start row of Kara
+     * @param startKaraColumn
+     *            the start column of Kara
+     * @param expected
+     *            the expected result
+     * @param expectedKaraRow
+     *            the expected row of Kara
+     * @param expectedKaraColumn
+     *            the expected column of Kara
+     */
+    // CHECKSTYLE:OFF
+    protected void verifyWorld(
+            final String[] start, final int startKaraRow, final int startKaraColumn,
+            final String[] expected, final int expectedKaraRow, final int expectedKaraColumn) {
+        verifyWorld(start, startKaraRow, startKaraColumn, Orientation.RIGHT,
+                expected, expectedKaraRow, expectedKaraColumn, Orientation.RIGHT);
+    }
+
+    // CHECKSTYLE:ON
+    /**
+     * Verifies that the program under test creates the expected world and Kara is set to the expected position. The
+     * world is initialized with the start values and Kara is put at the specified position.
      *
      * @param start
      *            the start world

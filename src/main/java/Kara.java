@@ -88,6 +88,11 @@ public class Kara implements KaraOperations {
         tools.showMessage(format, arguments);
     }
 
+    @Override
+    public long readLong(final String format, final Object... arguments) {
+        return tools.readLong(format, arguments);
+    }
+
     void setTools(final Tools tools) {
         this.tools = tools;
     }

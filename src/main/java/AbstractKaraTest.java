@@ -1,7 +1,8 @@
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import static org.junit.Assert.*;
+import org.junit.Assert;
+
 import static org.mockito.Mockito.*;
 
 /**
@@ -28,9 +29,24 @@ public abstract class AbstractKaraTest {
      *             if the program method could not be started
      */
     protected Tools runProgram(final JunitKaraRunner karaRunner) {
+        return runProgram(karaRunner, mock(Tools.class));
+    }
+
+    /**
+     * Runs the program. The program must be defined in a method called 'myProgram'. The method is called using
+     * reflection so implementers do not need to add an override annotation at their implementation.
+     *
+     * @param karaRunner
+     *            the runner with the initial world to run the program with
+     * @param tools
+     *            the tools instance to read input data from
+     * @return the tools instance to check for message outputs
+     * @throws IllegalArgumentException
+     *             if the program method could not be started
+     */
+    protected Tools runProgram(final JunitKaraRunner karaRunner, final Tools tools) {
         Kara program = createProgram();
         program.setRunner(karaRunner);
-        Tools tools = mock(Tools.class);
         program.setTools(tools);
 
         Method run;
@@ -60,8 +76,22 @@ public abstract class AbstractKaraTest {
         JunitKaraRunner karaRunner = new JunitKaraRunner(0, 0, Orientation.RIGHT, height, width);
         runProgram(karaRunner);
 
-        assertEquals("Die Welten sind nicht korrekt", new JunitKaraRunner(0, 0, Orientation.RIGHT, expected),
-                karaRunner);
+        assertEquals(expected, karaRunner);
+    }
+
+    /**
+     * Verifies that the program under test creates the expected world. The world is empty and Kara is set to 0, 0 with
+     * orientation to the right. Kara must be at the same position after the program finished.
+     *
+     * @param expected
+     *            the expected result
+     * @param actual
+     *            the actual result represented by the runner
+     *
+     */
+    protected void assertEquals(final String[] expected, final JunitKaraRunner actual) {
+        Assert.assertEquals("Die Welten sind nicht korrekt",
+                new JunitKaraRunner(0, 0, Orientation.RIGHT, expected), actual);
     }
 
     /**
@@ -200,7 +230,7 @@ public abstract class AbstractKaraTest {
         JunitKaraRunner karaRunner = new JunitKaraRunner(startKaraRow, startKaraColumn, startKaraOrientation, start);
         runProgram(karaRunner);
 
-        assertEquals("Die Welten sind nicht korrekt: Getestete Welt: "
+        Assert.assertEquals("Die Welten sind nicht korrekt: Getestete Welt: "
                 + new JunitKaraRunner(startKaraRow, startKaraColumn, startKaraOrientation, start)
                 + "Ergebnis: ",
                 new JunitKaraRunner(expectedKaraRow, expectedKaraColumn,
@@ -234,7 +264,7 @@ public abstract class AbstractKaraTest {
         JunitKaraRunner karaRunner = new JunitKaraRunner(startKaraRow, startKaraColumn, startKaraOrientation, start);
         runProgram(karaRunner);
 
-        assertEquals("Kara ist an der falschen Stelle: ", new JunitKaraRunner(expectedKaraRow, expectedKaraColumn,
+        Assert.assertEquals("Kara ist an der falschen Stelle: ", new JunitKaraRunner(expectedKaraRow, expectedKaraColumn,
                 expectedKaraOrientation, karaRunner.getHeight(), karaRunner.getWidth()).showKara(), karaRunner.showKara());
     }
     // CHECKSTYLE:ON}

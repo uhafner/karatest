@@ -4,7 +4,7 @@
 * @author Ullrich Hafner
 */
 public class Tools {
-    public int intInput(final String s) {
+    public long readLong(final String format, final Object... arguments) {
         return 0;
     }
 

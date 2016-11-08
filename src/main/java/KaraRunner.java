@@ -63,4 +63,9 @@ public class KaraRunner implements KaraOperations {
     public void showMessage(final String format, final Object... arguments) {
         // do nothing
     }
+
+    @Override
+    public long readLong(final String format, final Object... arguments) {
+        return 0;
+    }
 }

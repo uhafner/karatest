@@ -82,4 +82,12 @@ public interface KaraOperations {
      * @param arguments arguments referenced by the format specifiers in the format string
      */
     void showMessage(String format, Object... arguments);
+
+    /**
+     * Shows the specified message in a popup window and reads a long value.
+     *
+     * @param format    a <a href="../util/Formatter.html#syntax">format string</a>
+     * @param arguments arguments referenced by the format specifiers in the format string
+     */
+    long readLong(String format, Object... arguments);
 }

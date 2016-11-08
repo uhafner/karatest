@@ -172,11 +172,31 @@ public class Kara extends Actor {
 	/*----- END OF STANDARD KARA METHODS! BELOW ARE JUST SOME HELPER METHODS ----- */
 
 	/**
-	 * Shows a popup with a warning message containing both the english or
-	 * german message.
+	 * Shows the specified message in a popup window.
+	 *
+	 * @param format    a <a href="../util/Formatter.html#syntax">format string</a>
+	 * @param arguments arguments referenced by the format specifiers in the format string
 	 */
 	protected void showMessage(final String message, final Object... arguments) {
 		showDialog(String.format(message, arguments), "Message");
+	}
+
+	/**
+	 * Shows the specified message in a popup window and reads a long value.
+	 *
+	 * @param format    a <a href="../util/Formatter.html#syntax">format string</a>
+	 * @param arguments arguments referenced by the format specifiers in the format string
+	 */
+	protected long readLong(final String message, final Object... arguments) {
+		String input = KaraWorld.DialogUtils.showInputDialogEdt(String.format(message, arguments));
+
+		try {
+			return Long.parseLong(input);
+		}
+		catch (NumberFormatException exception) {
+			showWarning("No number", "Keine Zahl");
+		}
+		return -1;
 	}
 
 	/**

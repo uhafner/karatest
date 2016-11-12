@@ -1,0 +1,29 @@
+World: 3x3
+X: 3
+Y: 3
+@
+
+World: 4x4
+X: 4
+Y: 4
+@
+
+World: 5x5
+X: 5
+Y: 5
+@
+
+World: 6x6
+X: 6
+Y: 6
+@
+
+World: 7x7
+X: 7
+Y: 7
+@
+
+World: 8x8
+X: 8
+Y: 8
+@

@@ -1,0 +1,46 @@
+World: Circle
+X: 8
+Y: 7
+;Kara: @
+;Tree: #
+;Leaf: .
+;Mushroom: $
+;Mushroom on Leaf: *
+;Kara on Leaf: +
+;Empty Field: Space
+  ####
+ #    #
+#      #
++.......
+$$$$$$$$
+
+World: Cross
+X: 7
+Y: 9
+;Kara: @
+;Tree: #
+;Leaf: .
+;Mushroom: $
+;Mushroom on Leaf: *
+;Kara on Leaf: +
+;Empty Field: Space
+#     #
+ #   #
+  # #
+   #
++.......
+$$$$$$$$
+
+World: Line
+X: 3
+Y: 3
+;Kara: @
+;Tree: #
+;Leaf: .
+;Mushroom: $
+;Mushroom on Leaf: *
+;Kara on Leaf: +
+;Empty Field: Space
+###
++..
+$$$

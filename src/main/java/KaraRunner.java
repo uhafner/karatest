@@ -68,4 +68,14 @@ public class KaraRunner implements KaraOperations {
     public long readLong(final String format, final Object... arguments) {
         return 0;
     }
+
+    @Override
+    public int readInt(final String format, final Object... arguments) {
+        return 0;
+    }
+
+    @Override
+    public void clear() {
+        // do nothing
+    }
 }

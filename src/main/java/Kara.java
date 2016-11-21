@@ -93,7 +93,17 @@ public class Kara implements KaraOperations {
         return tools.readLong(format, arguments);
     }
 
+    @Override
+    public int readInt(final String format, final Object... arguments) {
+        return tools.readInt(format, arguments);
+    }
+
     void setTools(final Tools tools) {
         this.tools = tools;
+    }
+
+    @Override
+    public void clear() {
+        karaRunner.clear();
     }
 }

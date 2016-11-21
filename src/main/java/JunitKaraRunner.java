@@ -138,6 +138,15 @@ public class JunitKaraRunner extends KaraRunner {
     }
 
     @Override
+    public void clear() {
+        for (int row = 0; row < height; row++) {
+            for (int column = 0; column < width; column++) {
+                world[row][column] = Element.O;
+            }
+        }
+    }
+
+    @Override
     public void move() {
         Offset offset = karaOrientation.front();
         karaRow = actualRow(karaRow + offset.y);

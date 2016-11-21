@@ -8,6 +8,10 @@ public class Tools {
         return 0;
     }
 
+    public int readInt(final String format, final Object... arguments) {
+        return 0;
+    }
+
     public void showMessage(final String format, final Object... arguments) {
 
     }

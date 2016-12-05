@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 /**
  * Provides several helper methods to validate method arguments and class
  * invariants thus supporting the design by contract concept (DBC).
@@ -245,7 +247,7 @@ public final class Ensure {
          *            value of the condition
          */
         @SuppressWarnings("PMD.ArrayIsStoredDirectly")
-        @edu.umd.cs.findbugs.annotations.SuppressWarnings("EI2")
+        @SuppressFBWarnings("EI2")
         public ArrayCondition(@CheckForNull final Object[] value) {
             super(value);
 
@@ -422,7 +424,7 @@ public final class Ensure {
          * @param additionalValues
          *            additional values of the condition
          */
-        @edu.umd.cs.findbugs.annotations.SuppressWarnings("EI2")
+        @SuppressFBWarnings("EI2")
         @SuppressWarnings("PMD.ArrayIsStoredDirectly")
         public ObjectCondition(@CheckForNull final Object value, final Object[] additionalValues) {
             this.value = value;

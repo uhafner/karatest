@@ -98,10 +98,4 @@ public interface KaraOperations {
      * @param arguments arguments referenced by the format specifiers in the format string
      */
     int readInt(String format, Object... arguments);
-
-    /**
-     * Clears the world. Removes all trees, leaves and mushrooms (except Kara).
-     */
-    // FIXME: check if we need to remove this method that has been added for assignemnt 12
-    void clear();
 }

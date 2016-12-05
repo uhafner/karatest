@@ -101,9 +101,4 @@ public class Kara implements KaraOperations {
     void setTools(final Tools tools) {
         this.tools = tools;
     }
-
-    @Override
-    public void clear() {
-        karaRunner.clear();
-    }
 }

@@ -1,3 +1,5 @@
+import java.util.concurrent.TimeUnit;
+
 import org.junit.Rule;
 import org.junit.rules.Timeout;
 
@@ -10,7 +12,6 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  */
 public class AbstractTimeoutTest {
     /** Fails a test if the source code contains an infinite loop. */
-    @Rule
-    @SuppressFBWarnings("URF")
-    public final Timeout TIME_OUT = new Timeout(10_000); // NOCHECKSTYLE
+    @Rule @SuppressFBWarnings("URF")
+    public final Timeout TIME_OUT = new Timeout(10, TimeUnit.SECONDS); // NOCHECKSTYLE
 }

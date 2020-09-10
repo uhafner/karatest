@@ -7,7 +7,7 @@ public interface KaraOperations {
     /**
      * Move one step forward.
      *
-     * @throws AssertionFailedException if the next cell contains a tree, mushroom, or Kara
+     * @throws AssertionError if the next cell contains a tree, mushroom, or Kara
      */
     void move();
 
@@ -24,14 +24,14 @@ public interface KaraOperations {
     /**
      * Put a leaf on the current cell.
      *
-     * @throws AssertionFailedException if the current cell does not contain a leaf
+     * @throws AssertionError if the current cell does not contain a leaf
      */
     void putLeaf();
 
     /**
      * Removes a leaf from the current cell.
      *
-     * @throws AssertionFailedException if the current cell does already contain a leaf
+     * @throws AssertionError if the current cell does already contain a leaf
      */
     void removeLeaf();
 

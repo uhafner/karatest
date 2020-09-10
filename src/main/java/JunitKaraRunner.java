@@ -175,7 +175,7 @@ public class JunitKaraRunner extends KaraRunner {
     }
 
     private String fail(final String message) {
-        throw new AssertionFailedException(message + NEWLINE + toString());
+        throw new AssertionError(message + NEWLINE + toString());
     }
 
     private boolean containsMushroom(final Element newCell) {

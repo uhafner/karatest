@@ -7,7 +7,7 @@
   <parent>
     <groupId>edu.hm.hafner</groupId>
     <artifactId>codingstyle-pom</artifactId>
-    <version>1.4.0</version>
+    <version>1.5.1</version>
     <relativePath />
   </parent>
 
@@ -22,9 +22,9 @@
   </description>
 
   <scm>
-    <connection>scm:git:git://github.com/uhafner/${project.artifactId}.git</connection>
-    <developerConnection>scm:git:git@github.com:uhafner/${project.artifactId}.git</developerConnection>
-    <url>https://github.com/uhafner/${project.artifactId}</url>
+    <connection>scm:git:git://github.com/uhafner/karatest.git</connection>
+    <developerConnection>scm:git:git@github.com:uhafner/karatest.git</developerConnection>
+    <url>https://github.com/uhafner/karatest</url>
     <tag>HEAD</tag>
   </scm>
 
@@ -105,6 +105,29 @@
     </resources>
 
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifestEntries>
+              <Automatic-Module-Name>${module.name}</Automatic-Module-Name>
+            </manifestEntries>
+          </archive>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>test-jar</goal>
+            </goals>
+            <configuration>
+              <includes>
+                <include>**/*AbstractTimeoutTest*</include>
+              </includes>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <artifactId>maven-resources-plugin</artifactId>
         <version>${resources.maven.plugin}</version>

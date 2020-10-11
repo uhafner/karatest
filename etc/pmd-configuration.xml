@@ -21,6 +21,7 @@
     <exclude name="CommentDefaultAccessModifier"/>
     <exclude name="LocalVariableCouldBeFinal"/>
     <exclude name="DefaultPackage"/>
+    <exclude name="NoPackage"/>
     <exclude name="LongVariable"/>
     <exclude name="ShortVariable"/>
     <exclude name="ShortClassName"/>

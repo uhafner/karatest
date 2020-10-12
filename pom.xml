@@ -49,7 +49,7 @@
 
   <properties>
     <!-- Project Dependencies Configuration -->
-    <findbugs.annotations>3.0.0</findbugs.annotations>
+    <findbugs.annotations>3.0.1u2</findbugs.annotations>
     <commons.lang.version>3.11</commons.lang.version>
     <junit4.version>4.13</junit4.version>
 

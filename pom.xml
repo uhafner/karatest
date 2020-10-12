@@ -51,7 +51,7 @@
     <!-- Project Dependencies Configuration -->
     <findbugs.annotations>3.0.0</findbugs.annotations>
     <commons.lang.version>3.11</commons.lang.version>
-    <junit4.version>4.13</junit4.version>
+    <junit4.version>4.13.1</junit4.version>
 
     <!-- Maven Plug-ins Configuration -->
     <site.maven.plugin>3.4</site.maven.plugin>

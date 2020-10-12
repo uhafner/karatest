@@ -54,7 +54,7 @@
     <junit4.version>4.13.1</junit4.version>
 
     <!-- Maven Plug-ins Configuration -->
-    <site.maven.plugin>3.4</site.maven.plugin>
+    <site.maven.plugin>3.9.1</site.maven.plugin>
     <compiler.maven.plugin>3.2</compiler.maven.plugin>
     <resources.maven.plugin>2.7</resources.maven.plugin>
     <buildhelper.maven.plugin>1.9.1</buildhelper.maven.plugin>

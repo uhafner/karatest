@@ -3,13 +3,12 @@
     Checkstyle-Configuration: Ullrich Hafner
     Description: Ullrich Hafner's Checkstyle Rules.
 -->
+<!-- ${project.groupId}:${project.artifactId}:${project.version} -->
 <!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
         "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
 <module name="Checker">
   <property name="severity" value="warning"/>
   <module name="TreeWalker">
-    <property name="tabWidth" value="4"/>
-
     <module name="SuppressWarningsHolder" />
 
     <module name="OneStatementPerLine"/>
@@ -19,27 +18,30 @@
     </module>
     <module name="InnerTypeLast"/>
 
-    <module name="Indentation"/>
     <module name="AnnotationUseStyle"/>
+    <module name="Indentation">
+      <property name="arrayInitIndent" value="8"/>
+      <property name="lineWrappingIndentation" value="8"/>
+    </module>
     <module name="MissingDeprecated"/>
     <module name="PackageAnnotation"/>
     <module name="EqualsAvoidNull"/>
     <module name="GenericWhitespace"/>
-    <module name="FileContentsHolder"/>
-    <module name="JavadocType"/>
-    <module name="JavadocMethod">
-      <property name="scope" value="protected"/>
-      <property name="allowUndeclaredRTE" value="true"/>
-    </module>
-    <module name="JavadocVariable">
-      <property name="scope" value="protected"/>
-    </module>
     <module name="JavadocStyle">
       <property name="severity" value="warning"/>
-    </module>
-    <module name="JavadocStyle">
       <property name="checkEmptyJavadoc" value="true"/>
     </module>
+    <module name="JavadocType"/>
+    <module name="JavadocMethod"/>
+    <module name="JavadocVariable">
+      <property name="scope" value="protected"/>
+      <property name="tokens" value="VARIABLE_DEF"/>
+    </module>
+    <module name="MissingJavadocMethodCheck">
+      <property name="allowMissingPropertyJavadoc" value="true"/>
+    </module>
+    <module name="MissingJavadocTypeCheck"/>
+    <module name="MissingJavadocPackageCheck"/>
     <module name="ConstantName"/>
     <module name="LocalFinalVariableName"/>
     <module name="LocalVariableName"/>
@@ -99,10 +101,10 @@
       <property name="ignoreConstructorParameter" value="true"/>
       <property name="ignoreSetter" value="true"/>
       <property name="ignoreAbstractMethods" value="true"/>
+      <property name="setterCanReturnItsClass" value="true"/>
     </module>
     <module name="IllegalThrows"/>
     <module name="InnerAssignment"/>
-    <module name="MissingSwitchDefault"/>
     <module name="ModifiedControlVariable"/>
     <module name="MultipleVariableDeclarations"/>
     <module name="NestedTryDepth"/>
@@ -116,7 +118,6 @@
     <module name="SuperClone"/>
     <module name="SuperFinalize"/>
     <module name="UnnecessaryParentheses"/>
-    <module name="FinalClass"/>
     <module name="HideUtilityClassConstructor"/>
     <module name="InterfaceIsType"/>
     <module name="MutableException"/>
@@ -132,22 +133,20 @@
       <property name="max" value="25"/>
     </module>
     <module name="JavaNCSS"/>
-    <module name="NPathComplexity"/>
     <module name="ArrayTypeStyle"/>
     <module name="UpperEll"/>
     <module name="IllegalCatch"/>
     <module name="IllegalImport">
-      <property name="illegalPkgs" value="junit"/>
-    </module>
-    <module name="IllegalImport">
-      <property name="illegalPkgs" value="net.jcip.annotations"/>
+      <property name="illegalPkgs" value="net.jcip.annotations, javax.annotation"/>
+      <property name="illegalClasses" value="edu.umd.cs.findbugs.annotations.Nullable"/>
+      <property name="severity" value="error"/>
     </module>
   </module>
   <module name="FileTabCharacter">
-    <property name="fileExtensions" value="java"/>
+    <property name="fileExtensions" value="jelly, java"/>
   </module>
   <module name="FileLength">
-    <property name="fileExtensions" value="java"/>
+    <property name="fileExtensions" value="jelly, java"/>
   </module>
   <module name="SuppressWarningsFilter" />
 </module>

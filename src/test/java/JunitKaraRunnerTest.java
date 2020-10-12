@@ -1,4 +1,4 @@
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.*;
 
@@ -341,7 +341,7 @@ public class JunitKaraRunnerTest {
             kara.move();
             fail("Mushroom is moved over obstacle");
         }
-        catch (AssertionFailedException exception) {
+        catch (AssertionError exception) {
             // ignore and return
         }
     }

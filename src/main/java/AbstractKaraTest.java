@@ -57,7 +57,7 @@ public abstract class AbstractKaraTest {
         }
         catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
                 | InvocationTargetException exception) {
-            throw new AssertionFailedException("Can't invoke act()", exception);
+            throw new AssertionError("Can't invoke act()", exception);
         }
     }
 

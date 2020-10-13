@@ -58,7 +58,7 @@
     <compiler.maven.plugin>3.2</compiler.maven.plugin>
     <resources.maven.plugin>3.2.0</resources.maven.plugin>
     <buildhelper.maven.plugin>1.9.1</buildhelper.maven.plugin>
-    <surefire.maven.plugin>2.18.1</surefire.maven.plugin>
+    <surefire.maven.plugin>2.22.2</surefire.maven.plugin>
     <pmd.maven.plugin>3.5</pmd.maven.plugin>
     <checkstyle.maven.plugin>2.16</checkstyle.maven.plugin>
     <findbugs.maven.plugin>3.0.0</findbugs.maven.plugin>

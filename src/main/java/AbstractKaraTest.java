@@ -1,8 +1,7 @@
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import org.junit.Assert;
-
+import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 /**
@@ -90,8 +89,9 @@ public abstract class AbstractKaraTest {
      *
      */
     protected void assertEquals(final String[] expected, final JunitKaraRunner actual) {
-        Assert.assertEquals("Die Welten sind nicht korrekt",
-                new JunitKaraRunner(0, 0, Orientation.RIGHT, expected), actual);
+        assertThat(actual)
+                .as("Die Welten sind nicht korrekt")
+                .isEqualTo(new JunitKaraRunner(0, 0, Orientation.RIGHT, expected));
     }
 
     /**
@@ -145,7 +145,6 @@ public abstract class AbstractKaraTest {
      * @param expectedKaraOrientation
      *            the start orientation of Kara
      */
-    // CHECKSTYLE:OFF
     protected void verifyWorld(final String[] start, final int startKaraRow, final int startKaraColumn,
                                final Orientation startKaraOrientation, final int expectedKaraRow,
                                final int expectedKaraColumn, final Orientation expectedKaraOrientation) {
@@ -168,7 +167,6 @@ public abstract class AbstractKaraTest {
      * @param expectedKaraColumn
      *            the expected column of Kara
      */
-    // CHECKSTYLE:OFF
     protected void verifyWorld(final String[] start, final int startKaraRow, final int startKaraColumn,
                                final int expectedKaraRow, final int expectedKaraColumn) {
         verifyWorld(start, startKaraRow, startKaraColumn, Orientation.RIGHT,
@@ -193,7 +191,6 @@ public abstract class AbstractKaraTest {
      * @param expectedKaraColumn
      *            the expected column of Kara
      */
-    // CHECKSTYLE:OFF
     protected void verifyWorld(
             final String[] start, final int startKaraRow, final int startKaraColumn,
             final String[] expected, final int expectedKaraRow, final int expectedKaraColumn) {
@@ -201,7 +198,6 @@ public abstract class AbstractKaraTest {
                 expected, expectedKaraRow, expectedKaraColumn, Orientation.RIGHT);
     }
 
-    // CHECKSTYLE:ON
     /**
      * Verifies that the program under test creates the expected world and Kara is set to the expected position. The
      * world is initialized with the start values and Kara is put at the specified position.
@@ -223,20 +219,18 @@ public abstract class AbstractKaraTest {
      * @param expectedKaraOrientation
      *            the start orientation of Kara
      */
-    // CHECKSTYLE:OFF
     protected void verifyWorld(final String[] start, final int startKaraRow, final int startKaraColumn,
             final Orientation startKaraOrientation, final String[] expected, final int expectedKaraRow,
             final int expectedKaraColumn, final Orientation expectedKaraOrientation) {
         JunitKaraRunner karaRunner = new JunitKaraRunner(startKaraRow, startKaraColumn, startKaraOrientation, start);
         runProgram(karaRunner);
 
-        Assert.assertEquals("Die Welten sind nicht korrekt: Getestete Welt: "
-                + new JunitKaraRunner(startKaraRow, startKaraColumn, startKaraOrientation, start)
-                + "Ergebnis: ",
-                new JunitKaraRunner(expectedKaraRow, expectedKaraColumn,
-                expectedKaraOrientation, expected), karaRunner);
+        assertThat(karaRunner)
+                .as("Die Welten sind nicht korrekt! Getestete Welt: %s Ergebnis: ",
+                        new JunitKaraRunner(startKaraRow, startKaraColumn, startKaraOrientation, start))
+                .isEqualTo(new JunitKaraRunner(expectedKaraRow, expectedKaraColumn,
+                expectedKaraOrientation, expected));
     }
-    // CHECKSTYLE:ON
 
     /**
      * Verifies that the program under test moves to the expected position. The
@@ -257,15 +251,15 @@ public abstract class AbstractKaraTest {
      * @param expectedKaraOrientation
      *            the start orientation of Kara
      */
-    // CHECKSTYLE:OFF
     protected void verifyKara(final String[] start, final int startKaraRow, final int startKaraColumn,
             final Orientation startKaraOrientation, final int expectedKaraRow,
             final int expectedKaraColumn, final Orientation expectedKaraOrientation) {
         JunitKaraRunner karaRunner = new JunitKaraRunner(startKaraRow, startKaraColumn, startKaraOrientation, start);
         runProgram(karaRunner);
 
-        Assert.assertEquals("Kara ist an der falschen Stelle: ", new JunitKaraRunner(expectedKaraRow, expectedKaraColumn,
-                expectedKaraOrientation, karaRunner.getHeight(), karaRunner.getWidth()).showKara(), karaRunner.showKara());
+        assertThat(karaRunner.showKara())
+                .as("Kara ist an der falschen Stelle: ")
+                .isEqualTo(new JunitKaraRunner(expectedKaraRow, expectedKaraColumn,
+                        expectedKaraOrientation, karaRunner.getHeight(), karaRunner.getWidth()).showKara());
     }
-    // CHECKSTYLE:ON}
 }

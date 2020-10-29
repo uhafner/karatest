@@ -1,3 +1,5 @@
+import edu.umd.cs.findbugs.annotations.CheckReturnValue;
+
 /**
  * Stub for Kara the ladybug.
  *
@@ -53,27 +55,27 @@ public class Kara implements KaraOperations {
         karaRunner.removeLeaf();
     }
 
-    @Override
+    @Override @CheckReturnValue
     public boolean isTreeFront() {
         return karaRunner.isTreeFront();
     }
 
-    @Override
+    @Override @CheckReturnValue
     public boolean isTreeLeft() {
         return karaRunner.isTreeLeft();
     }
 
-    @Override
+    @Override @CheckReturnValue
     public boolean isTreeRight() {
         return karaRunner.isTreeRight();
     }
 
-    @Override
+    @Override @CheckReturnValue
     public boolean isOnLeaf() {
         return karaRunner.isOnLeaf();
     }
 
-    @Override
+    @Override @CheckReturnValue
     public boolean isMushroomFront() {
         return karaRunner.isMushroomFront();
     }

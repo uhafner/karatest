@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.*;
 
 /**
  * Tests the class {@link JunitKaraRunner}.
@@ -18,11 +18,11 @@ public class JunitKaraRunnerTest {
                 for (int column = 0; column < 2; column++) {
                     JunitKaraRunner kara = new JunitKaraRunner(row, column, orientation, 2, 2);
 
-                    assertFalse("Kara is on leaf", kara.isOnLeaf());
-                    assertFalse("No tree in front", kara.isTreeFront());
-                    assertFalse("No tree on the left", kara.isTreeLeft());
-                    assertFalse("No tree on the right", kara.isTreeRight());
-                    assertFalse("No mushroom in front", kara.isMushroomFront());
+                    assertThat(kara.isOnLeaf()).as("Kara is on leaf").isFalse();
+                    assertThat(kara.isTreeFront()).as("No tree in front").isFalse();
+                    assertThat(kara.isTreeLeft()).as("No tree on the left").isFalse();
+                    assertThat(kara.isTreeRight()).as("No tree on the right").isFalse();
+                    assertThat(kara.isMushroomFront()).as("No mushroom in front").isFalse();
                 }
             }
         }
@@ -37,12 +37,12 @@ public class JunitKaraRunnerTest {
             for (int row = 0; row < 2; row++) {
                 for (int column = 0; column < 2; column++) {
                     JunitKaraRunner kara = new JunitKaraRunner(row, column, orientation, getTreeWorld(row, column));
-                    assertTrue("Kara is not on leaf", kara.isOnLeaf());
-                    assertTrue("Tree in front", kara.isTreeFront());
-                    assertTrue("Tree on the left", kara.isTreeLeft());
-                    assertTrue("Tree on the right", kara.isTreeRight());
+                    assertThat(kara.isOnLeaf()).as("Kara is not on leaf").isTrue();
+                    assertThat(kara.isTreeFront()).as("Tree in front").isTrue();
+                    assertThat(kara.isTreeLeft()).as("Tree on the left").isTrue();
+                    assertThat(kara.isTreeRight()).as("Tree on the right").isTrue();
 
-                    assertFalse("No mushroom in front", kara.isMushroomFront());
+                    assertThat(kara.isMushroomFront()).as("No mushroom in front").isFalse();
                 }
             }
         }
@@ -65,12 +65,12 @@ public class JunitKaraRunnerTest {
 
     private void verifyMushrooms(final Orientation orientation, final int row, final int column, final String[] world) {
         JunitKaraRunner kara = new JunitKaraRunner(row, column, orientation, world);
-        assertTrue("Kara is not on leaf", kara.isOnLeaf());
-        assertFalse("Tree in front", kara.isTreeFront());
-        assertFalse("Tree on the left", kara.isTreeLeft());
-        assertFalse("Tree on the right", kara.isTreeRight());
+        assertThat(kara.isOnLeaf()).as("Kara is not on leaf").isTrue();
+        assertThat(kara.isTreeFront()).as("Tree in front").isFalse();
+        assertThat(kara.isTreeLeft()).as("Tree on the left").isFalse();
+        assertThat(kara.isTreeRight()).as("Tree on the right").isFalse();
 
-        assertTrue("No mushroom in front", kara.isMushroomFront());
+        assertThat(kara.isMushroomFront()).as("No mushroom in front").isTrue();
     }
 
     /**
@@ -87,65 +87,59 @@ public class JunitKaraRunnerTest {
         kara.move();
         kara.turnRight();
 
-        assertTrue("There is no mushroom in front of Kara", kara.isMushroomFront());
+        assertThat(kara.isMushroomFront()).as("There is no mushroom in front of Kara").isTrue();
 
         kara.move();
-        assertEquals("Die Welten sind nicht korrekt",
-                new JunitKaraRunner(1, 1, Orientation.DOWN,
+        assertThat(kara).as("Die Welten sind nicht korrekt").isEqualTo(new JunitKaraRunner(1, 1, Orientation.DOWN,
                         new String[] {
                                 "OOO",
                                 "OOO",
                                 "OMO",
-                        }), kara);
+                        }));
 
         kara.move();
-        assertEquals("Die Welten sind nicht korrekt",
-                new JunitKaraRunner(2, 1, Orientation.DOWN,
+        assertThat(kara).as("Die Welten sind nicht korrekt").isEqualTo(new JunitKaraRunner(2, 1, Orientation.DOWN,
                         new String[] {
                                 "OMO",
                                 "OOO",
                                 "OOO",
-                        }), kara);
+                        }));
 
         kara.move();
-        assertEquals("Die Welten sind nicht korrekt",
-                new JunitKaraRunner(0, 1, Orientation.DOWN,
+        assertThat(kara).as("Die Welten sind nicht korrekt").isEqualTo(new JunitKaraRunner(0, 1, Orientation.DOWN,
                         new String[] {
                                 "OOO",
                                 "OMO",
                                 "OOO",
-                        }), kara);
+                        }));
 
         kara.turnLeft();
         kara.turnLeft();
         kara.move();
 
         kara.move();
-        assertEquals("Die Welten sind nicht korrekt",
-                new JunitKaraRunner(1, 1, Orientation.UP,
+        assertThat(kara).as("Die Welten sind nicht korrekt").isEqualTo(new JunitKaraRunner(1, 1, Orientation.UP,
                         new String[] {
                                 "OMO",
                                 "OOO",
                                 "OOO",
-                        }), kara);
+                        }));
 
         kara.move();
-        assertEquals("Die Welten sind nicht korrekt",
-                new JunitKaraRunner(0, 1, Orientation.UP,
+        assertThat(kara).as("Die Welten sind nicht korrekt").isEqualTo(new JunitKaraRunner(0, 1, Orientation.UP,
                         new String[] {
                                 "OOO",
                                 "OOO",
                                 "OMO",
-                        }), kara);
+                        }));
 
         kara.move();
-        assertEquals("Die Welten sind nicht korrekt",
-                new JunitKaraRunner(2, 1, Orientation.UP,
+        assertThat(kara).as("Die Welten sind nicht korrekt").isEqualTo(new JunitKaraRunner(2, 1, Orientation.UP,
                         new String[] {
                                 "OOO",
                                 "OMO",
                                 "OOO",
-                        }), kara);
+                        }));
     }
 
     /**
@@ -159,65 +153,65 @@ public class JunitKaraRunnerTest {
                         "OMO",
                         "OOO",
                 });
-        assertTrue("There is no mushroom in front of Kara", kara.isMushroomFront());
+        assertThat(kara.isMushroomFront()).as("There is no mushroom in front of Kara").isTrue();
 
         kara.move();
-        assertEquals("Die Welten sind nicht korrekt",
-                new JunitKaraRunner(1, 1, Orientation.RIGHT,
+        assertThat(kara).as("Die Welten sind nicht korrekt")
+                .isEqualTo(new JunitKaraRunner(1, 1, Orientation.RIGHT,
                         new String[] {
                                 "OOO",
                                 "OOM",
                                 "OOO",
-                        }), kara);
+                        }));
 
         kara.move();
-        assertEquals("Die Welten sind nicht korrekt",
-                new JunitKaraRunner(1, 2, Orientation.RIGHT,
+        assertThat(kara).as("Die Welten sind nicht korrekt")
+                .isEqualTo(new JunitKaraRunner(1, 2, Orientation.RIGHT,
                         new String[] {
                                 "OOO",
                                 "MOO",
                                 "OOO",
-                        }), kara);
+                        }));
 
         kara.move();
-        assertEquals("Die Welten sind nicht korrekt",
-                new JunitKaraRunner(1, 0, Orientation.RIGHT,
+        assertThat(kara).as("Die Welten sind nicht korrekt")
+                .isEqualTo(new JunitKaraRunner(1, 0, Orientation.RIGHT,
                         new String[] {
                                 "OOO",
                                 "OMO",
                                 "OOO",
-                        }), kara);
+                        }));
 
         kara.turnLeft();
         kara.turnLeft();
         kara.move();
 
         kara.move();
-        assertEquals("Die Welten sind nicht korrekt",
-                new JunitKaraRunner(1, 1, Orientation.LEFT,
+        assertThat(kara).as("Die Welten sind nicht korrekt")
+                .isEqualTo(new JunitKaraRunner(1, 1, Orientation.LEFT,
                         new String[] {
                                 "OOO",
                                 "MOO",
                                 "OOO",
-                        }), kara);
+                        }));
 
         kara.move();
-        assertEquals("Die Welten sind nicht korrekt",
-                new JunitKaraRunner(1, 0, Orientation.LEFT,
+        assertThat(kara).as("Die Welten sind nicht korrekt")
+                .isEqualTo(new JunitKaraRunner(1, 0, Orientation.LEFT,
                         new String[] {
                                 "OOO",
                                 "OOM",
                                 "OOO",
-                        }), kara);
+                        }));
 
         kara.move();
-        assertEquals("Die Welten sind nicht korrekt",
-                new JunitKaraRunner(1, 2, Orientation.LEFT,
+        assertThat(kara).as("Die Welten sind nicht korrekt")
+                .isEqualTo(new JunitKaraRunner(1, 2, Orientation.LEFT,
                         new String[] {
                                 "OOO",
                                 "OMO",
                                 "OOO",
-                        }), kara);
+                        }));
     }
 
     private String[] getTreeWorld(final int row, final int column) {
@@ -371,10 +365,10 @@ public class JunitKaraRunnerTest {
     }
 
     private void verifyMushroomOverLeaf(final JunitKaraRunner kara, final String expectedWorld, final int expectedColumn) {
-        assertEquals("Die Welten sind nicht korrekt",
-                new JunitKaraRunner(0, expectedColumn, Orientation.RIGHT,
+        assertThat(kara).as("Die Welten sind nicht korrekt")
+                .isEqualTo(new JunitKaraRunner(0, expectedColumn, Orientation.RIGHT,
                         new String[] {
                                 expectedWorld,
-                        }), kara);
+                        }));
     }
 }

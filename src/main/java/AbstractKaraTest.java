@@ -1,7 +1,9 @@
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.time.Duration;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 /**
@@ -44,6 +46,12 @@ public abstract class AbstractKaraTest {
      *             if the program method could not be started
      */
     protected Tools runProgram(final JunitKaraRunner karaRunner, final Tools tools) {
+        assertTimeoutPreemptively(Duration.ofSeconds(5), () -> invokeKara(karaRunner, tools));
+
+        return tools;
+    }
+
+    private Tools invokeKara(final JunitKaraRunner karaRunner, final Tools tools) {
         Kara program = createProgram();
         program.setRunner(karaRunner);
         program.setTools(tools);

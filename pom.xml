@@ -94,6 +94,11 @@
       <artifactId>assertj-core</artifactId>
       <version>3.17.2</version>
     </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>${junit.version}</version>
+    </dependency>
   </dependencies>
 
   <build>

@@ -7,7 +7,8 @@ public interface KaraOperations {
     /**
      * Move one step forward.
      *
-     * @throws AssertionError if the next cell contains a tree, mushroom, or Kara
+     * @throws AssertionError
+     *         if the next cell contains a tree, mushroom, or Kara
      */
     void move();
 
@@ -24,14 +25,16 @@ public interface KaraOperations {
     /**
      * Put a leaf on the current cell.
      *
-     * @throws AssertionError if the current cell does not contain a leaf
+     * @throws AssertionError
+     *         if the current cell does not contain a leaf
      */
     void putLeaf();
 
     /**
      * Removes a leaf from the current cell.
      *
-     * @throws AssertionError if the current cell does already contain a leaf
+     * @throws AssertionError
+     *         if the current cell does already contain a leaf
      */
     void removeLeaf();
 
@@ -78,24 +81,42 @@ public interface KaraOperations {
     /**
      * Shows the specified message in a popup window.
      *
-     * @param format    a <a href="../util/Formatter.html#syntax">format string</a>
-     * @param arguments arguments referenced by the format specifiers in the format string
+     * @param format
+     *         a <a href="../util/Formatter.html#syntax">format string</a>
+     * @param arguments
+     *         arguments referenced by the format specifiers in the format string
      */
     void showMessage(String format, Object... arguments);
 
     /**
      * Shows the specified message in a popup window and reads a long value.
      *
-     * @param format    a <a href="../util/Formatter.html#syntax">format string</a>
-     * @param arguments arguments referenced by the format specifiers in the format string
+     * @param format
+     *         a <a href="../util/Formatter.html#syntax">format string</a>
+     * @param arguments
+     *         arguments referenced by the format specifiers in the format string
+     *
+     * @return the long value
      */
     long readLong(String format, Object... arguments);
 
     /**
      * Shows the specified message in a popup window and reads an int value.
      *
-     * @param format    a <a href="../util/Formatter.html#syntax">format string</a>
-     * @param arguments arguments referenced by the format specifiers in the format string
+     * @param format
+     *         a <a href="../util/Formatter.html#syntax">format string</a>
+     * @param arguments
+     *         arguments referenced by the format specifiers in the format string
+     *
+     * @return the integer value
      */
     int readInt(String format, Object... arguments);
+
+    /**
+     * Sets the speed of the Greenfoot playback.
+     *
+     * @param speed
+     *         the speed to use
+     */
+    void setSpeed(int speed);
 }

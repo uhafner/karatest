@@ -103,4 +103,9 @@ public class Kara implements KaraOperations {
     void setTools(final Tools tools) {
         this.tools = tools;
     }
+
+    @Override
+    public void setSpeed(final int speed) {
+        // ignore speed during tests
+    }
 }

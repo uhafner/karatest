@@ -73,4 +73,9 @@ public class KaraRunner implements KaraOperations {
     public int readInt(final String format, final Object... arguments) {
         return 0;
     }
+
+    @Override
+    public void setSpeed(final int speed) {
+        // ignore speed during tests
+    }
 }

@@ -326,18 +326,14 @@ public class JunitKaraRunnerTest {
     }
 
     private void moveOverTree(final String world) {
-        try {
+        assertThatIllegalArgumentException().isThrownBy(() -> {
             JunitKaraRunner kara = new JunitKaraRunner(0,
                     world.indexOf('O'), Orientation.RIGHT,
                     new String[] {
                             world,
                     });
             kara.move();
-            fail("Mushroom is moved over obstacle");
-        }
-        catch (AssertionError exception) {
-            // ignore and return
-        }
+        });
     }
 
     /**

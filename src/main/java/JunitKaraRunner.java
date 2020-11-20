@@ -61,10 +61,6 @@ public class JunitKaraRunner extends KaraRunner {
         verifyKarasInitialPosition();
     }
 
-    private boolean canEnter() {
-        return kara() == Element.L || kara() == Element.O;
-    }
-
     /**
      * Creates a new instance of {@link JunitKaraRunner}.
      *
@@ -83,6 +79,10 @@ public class JunitKaraRunner extends KaraRunner {
 
         createWorld(content);
         verifyKarasInitialPosition();
+    }
+
+    private boolean canEnter() {
+        return kara() == Element.L || kara() == Element.O;
     }
 
     /**
@@ -287,6 +287,17 @@ public class JunitKaraRunner extends KaraRunner {
         content.append(NEWLINE);
         content.append(showKara());
         content.append(NEWLINE);
+        content.append(showWorld());
+        return content.toString();
+    }
+
+    /**
+     * Shows the actual world encoded into a String.
+     *
+     * @return a String representing the position of Kara
+     */
+    public String showWorld() {
+        StringBuilder content = new StringBuilder();
         for (Element[] currentRow : world) {
             for (Element element : currentRow) {
                 content.append(element);
@@ -297,7 +308,7 @@ public class JunitKaraRunner extends KaraRunner {
     }
 
     /**
-     * Shows the position of
+     * Shows the position of Kara encoded into a String.
      *
      * @return a String representing the position of Kara
      */
@@ -383,8 +394,9 @@ public class JunitKaraRunner extends KaraRunner {
                 case 'A':
                 case '*':
                     return A;
+                default:
+                    throw new IllegalArgumentException(String.format("Can't convert character %c to world element.", value));
             }
-            throw new IllegalArgumentException(String.format("Can't convert character %c to world element.", value));
         }
 
         @Override

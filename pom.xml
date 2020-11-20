@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
 
@@ -8,7 +9,7 @@
     <groupId>edu.hm.hafner</groupId>
     <artifactId>codingstyle-pom</artifactId>
     <version>1.6.0</version>
-    <relativePath />
+    <relativePath/>
   </parent>
 
   <artifactId>karatest</artifactId>
@@ -45,54 +46,37 @@
     </developer>
   </developers>
 
-  <url>http://www.cs.hm.edu/die_fakultaet/ansprechpartner/professoren/hafner/index.de.html</url>
+  <url>https://www.cs.hm.edu/die_fakultaet/ansprechpartner/professoren/hafner/index.de.html</url>
 
   <properties>
-    <!-- Project Dependencies Configuration -->
-    <findbugs.annotations>3.0.1u2</findbugs.annotations>
     <commons.lang.version>3.11</commons.lang.version>
     <junit4.version>4.13.1</junit4.version>
+    <codingstyle.version>1.6.0</codingstyle.version>
 
     <!-- Maven Plug-ins Configuration -->
-    <site.maven.plugin>3.9.1</site.maven.plugin>
-    <compiler.maven.plugin>3.8.1</compiler.maven.plugin>
-    <resources.maven.plugin>3.2.0</resources.maven.plugin>
     <buildhelper.maven.plugin>3.2.0</buildhelper.maven.plugin>
-    <surefire.maven.plugin>2.22.2</surefire.maven.plugin>
-    <pmd.maven.plugin>3.5</pmd.maven.plugin>
-    <checkstyle.maven.plugin>2.16</checkstyle.maven.plugin>
-    <findbugs.maven.plugin>3.0.0</findbugs.maven.plugin>
-    <cobertura.maven.plugin>2.7</cobertura.maven.plugin>
-    <projectinfo.maven.plugin>2.8</projectinfo.maven.plugin>
-    <jxr.maven.plugin>2.5</jxr.maven.plugin>
-    <taglist.maven.plugin>2.4</taglist.maven.plugin>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>edu.hm.hafner</groupId>
       <artifactId>codingstyle</artifactId>
-      <version>1.6.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.code.findbugs</groupId>
-      <artifactId>annotations</artifactId>
-      <version>${findbugs.annotations}</version>
+      <version>${codingstyle.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
-      <version>3.11</version>
+      <version>${commons.lang.version}</version>
     </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
-      <version>3.6.0</version>
+      <version>${mockito.version}</version>
     </dependency>
     <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
-      <version>3.18.1</version>
+      <version>${assertj.version}</version>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -134,8 +118,8 @@
         </executions>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-resources-plugin</artifactId>
-        <version>${resources.maven.plugin}</version>
         <executions>
           <execution>
             <id>copy-resources</id>
@@ -179,44 +163,15 @@
         </executions>
       </plugin>
       <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>${compiler.maven.plugin}</version>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
-          <testSource>${java.version}</testSource>
-          <testTarget>${java.version}</testTarget>
+          <excludes>
+            <exclude>JunitKaraRunnerTest.java</exclude>
+          </excludes>
         </configuration>
       </plugin>
     </plugins>
-
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-site-plugin</artifactId>
-          <version>${site.maven.plugin}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>${surefire.maven.plugin}</version>
-          <configuration>
-            <excludes>
-              <exclude>JunitKaraRunnerTest.java</exclude>
-            </excludes>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>${resources.maven.plugin}</version>
-          <configuration>
-            <encoding>${source.encoding}</encoding>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
   </build>
 
 </project>

@@ -20,7 +20,7 @@ jobs:
       - name: Build assignment and run tests
         run: mvn -V -ntp clean verify -Dmaven.test.failure.ignore=true --file pom.xml
       - name: Autograde code (tests and analysis)
-        uses: uhafner/autograding-github-action@v1.2.0
+        uses: uhafner/autograding-github-action@v1.3.0
         with:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HEAD_SHA: ${{github.event.pull_request.head.sha}}

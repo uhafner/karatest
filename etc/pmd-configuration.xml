@@ -65,13 +65,6 @@
     <exclude name="AvoidCatchingGenericException"/>
     <exclude name="FinalFieldCouldBeStatic"/>
     <exclude name="AvoidUncheckedExceptionsInSignatures"/>
-    <exclude name="TooManyFields"/>
-  </rule>
-  <rule ref="category/java/design.xml/TooManyFields">
-    <properties>
-      <property name="maxfields" value="1" />
-      <priority>5</priority>
-    </properties>
   </rule>
   <rule ref="category/java/errorprone.xml">
     <exclude name="DataflowAnomalyAnalysis"/>

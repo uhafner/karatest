@@ -48,7 +48,7 @@
   <url>https://www.cs.hm.edu/die_fakultaet/ansprechpartner/professoren/hafner/index.de.html</url>
 
   <properties>
-    <commons.lang.version>3.11</commons.lang.version>
+    <commons.lang.version>3.12.0</commons.lang.version>
     <junit4.version>4.13.1</junit4.version>
     <codingstyle.version>1.6.0</codingstyle.version>
 

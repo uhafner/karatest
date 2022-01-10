@@ -53,7 +53,7 @@
     <codingstyle.version>2.0.6</codingstyle.version>
 
     <!-- Maven Plug-ins Configuration -->
-    <buildhelper.maven.plugin>3.2.0</buildhelper.maven.plugin>
+    <buildhelper.maven.plugin>3.3.0</buildhelper.maven.plugin>
   </properties>
 
   <dependencies>

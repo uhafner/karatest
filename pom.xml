@@ -50,7 +50,7 @@
   <properties>
     <commons.lang.version>3.12.0</commons.lang.version>
     <junit4.version>4.13.1</junit4.version>
-    <codingstyle.version>2.0.6</codingstyle.version>
+    <codingstyle.version>2.24.0</codingstyle.version>
 
     <!-- Maven Plug-ins Configuration -->
     <buildhelper.maven.plugin>3.2.0</buildhelper.maven.plugin>
